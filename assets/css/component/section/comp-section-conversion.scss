@@ -37,3 +37,32 @@
     }
   }
 }
+
+@media screen and (min-width: 980px){
+  .comp-section-conversion{
+    padding: 100px 0;
+    background: $keyColor;
+    color: #fff;
+    .contact_title{
+      margin-bottom: 50px;
+      .contact_ttl{
+        font-size: 3.0rem;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        &::after{
+          width: 30px;
+          height: 2px;
+        }
+      }
+      .contact_desc{
+        font-size: 1.8rem;
+        span{
+          display: inline;
+        }
+        br{
+          display: block;
+        }
+      }
+    }
+  }
+}
