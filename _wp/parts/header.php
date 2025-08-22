@@ -2,32 +2,33 @@
 <!-- End Google Tag Manager (noscript) -->
 <div class="header_inner">
 	<div class="header_left">
-		<a href="/">
-			<img src="<?php echo get_template_directory_uri();?>/assets/img/common/header_logo.svg">
-		</a>
-	</div><!-- header_left -->
-	<div class="header_right">
+		<div class="header_logo">
+			<a href="/">
+				<img src="<?php echo get_template_directory_uri();?>/assets/img/common/h_logo.svg">
+			</a>
+		</div>
 		<nav class="header_navigation">
 			<ul>
-				<li><a href="/technology">技術的信念</a></li>
-				<li><a href="/company">会社概要</a></li>
+				<li><a href="/about">zenshotとは</a></li>
+				<li><a href="/case">導入事例</a></li>
+				<li><a href="/flow">導入の流れ</a></li>
 				<li><a href="/news">お知らせ</a></li>
-				<li><a href="/contact">お問い合わせ</a></li>
 			</ul>
-			<div class="saiyo_link">
-				<a target="_blank" href="https://recruit.zen-intelligence.ai/">
-					<span class="txt">採用情報</span>
-					<span class="outer">
-						<svg viewBox="0 0 9.8 9.8">
-							<path class="cls-1" d="M9.3.5H2.5v6.8h6.8V.5Z" />
-							<path class="cls-1" d="M7.3,2.5H.5v6.8h6.8V2.5Z" />
-						</svg>
-					</span>
-				</a>
-			</div><!-- saiyo_link -->
 		</nav>
+	</div><!-- header_left -->
+	<div class="header_right">
 		<div id="humButton" class="hummenu_wrap">
 			<button><span></span><span></span></button>
 		</div>
+		<div class="contact_button">
+			<a href="/contact">
+				<span class="txt">お問い合わせ</span>
+				<span class="caret">
+					<svg viewBox="0 0 21.95 19.13">
+						<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
+					</svg>
+				</span>
+			</a>
+		</div><!-- contact_button -->
 	</div><!-- header_right -->
 </div><!-- header_inner -->

@@ -87,24 +87,31 @@
 						$post_id = get_the_ID();
 						$post_id = get_the_ID();
 						$page_ttl = get_the_title($post_id);
+						$image = get_the_post_thumbnail_url($id, 'medium_large');
+            $image_sp = get_the_post_thumbnail_url($id, 'medium_large');
 						$date = get_the_date('Y.m.d');
 						/* カテゴリー */
 						$terms = get_the_terms($post->ID, 'news-category');
 					?>
 					<div class="news_item">
 						<a href="<?php the_permalink();?>">
-							<span class="news_header">
-								<span class="date"><?= $date;?></span>
-								<?php if ($terms) :
-									foreach ($terms as $term) {
-										$category_name = $term->name;
-										$category_slug = $term->slug;
-										echo '<span class="category">'. $term->name.'</span>';
-									}
-									endif;
-								?>
+							<span class="img_wrap">
+								<img loading="lazy" src="<?= $image ?>" srcset="<?= $image ?> 1440w, <?= $image_sp ?> 768w, <?= $image ?> 2048w">
 							</span>
-							<span class="news_title"><?= $page_ttl;?></span>
+							<span class="txt_wrap">
+								<span class="news_header">
+									<span class="date"><?= $date;?></span>
+									<?php if ($terms) :
+										foreach ($terms as $term) {
+											$category_name = $term->name;
+											$category_slug = $term->slug;
+											echo '<span class="category">'. $term->name.'</span>';
+										}
+										endif;
+									?>
+								</span>
+								<span class="news_title"><?= $page_ttl;?></span>
+							</span>
 						</a>
 					</div>
 					<?php endwhile; else : endif; wp_reset_postdata();?>
@@ -152,7 +159,7 @@
 				<?php endif; ?>
 			</div><!-- section_inner -->
 		</section>
-		<?php get_template_part("parts/recruit");?>
+		<?php get_template_part("parts/conversion");?>
 	</article>
 	<?php get_template_part("parts/hummenu"); ?>
 	<?php get_template_part("parts/footer"); ?>

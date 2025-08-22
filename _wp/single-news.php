@@ -121,18 +121,11 @@
 							<h2 class="ttl">お知らせ</h2>
 							<div class="comp-link-button">
 								<a href="/news">
-									<span class="txt">Details</span>
-									<span class="caret">
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0" />
-											</svg>
-										</span>
-										<span class="circle">
-											<svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 62.9 62.9">
-												<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -13.0238 31.4424)" class="st1" cx="31.4" cy="31.4" rx="30.9" ry="30.9"></ellipse>
-											</svg>
-										</span>
+									<span class="txt">お知らせ一覧</span>
+									<span class="arrow">
+										<svg viewBox="0 0 21.95 19.13">
+											<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0" />
+										</svg>
 									</span>
 								</a>
 							</div><!-- comp-link-button -->
@@ -158,6 +151,8 @@
 								$order = intval($order) + intval(1);
 								$post_id = get_the_ID();
 								$page_ttl = get_the_title($post_id);
+								$image = get_the_post_thumbnail_url($id, 'medium_large');
+		            $image_sp = get_the_post_thumbnail_url($id, 'medium_large');
 								$date = get_the_date('Y.m.d');
 								/* カテゴリー */
 								$terms = get_the_terms($post->ID, 'news-category');
@@ -169,22 +164,34 @@
 
 								endif;
 							 ?>
-							<div class="news_item">
-								<a href="<?php the_permalink();?>">
-									<span class="news_header">
-										<span class="date"><?= $date;?></span>
-										<span class="category"><?= $category_name;?></span>
-									</span>
-									<span class="news_title"><?= $page_ttl;?></span>
-								</a>
-							</div>
+							 <div class="news_item">
+ 								<a href="<?php the_permalink();?>">
+ 									<span class="img_wrap">
+ 										<img loading="lazy" src="<?= $image ?>" srcset="<?= $image ?> 1440w, <?= $image_sp ?> 768w, <?= $image ?> 2048w">
+ 									</span>
+ 									<span class="txt_wrap">
+ 										<span class="news_header">
+ 											<span class="date"><?= $date;?></span>
+ 											<?php if ($terms) :
+ 												foreach ($terms as $term) {
+ 													$category_name = $term->name;
+ 													$category_slug = $term->slug;
+ 													echo '<span class="category">'. $term->name.'</span>';
+ 												}
+ 												endif;
+ 											?>
+ 										</span>
+ 										<span class="news_title"><?= $page_ttl;?></span>
+ 									</span>
+ 								</a>
+ 							</div>
 							<?php endwhile; else : endif; wp_reset_postdata();?>
 						</div><!-- comp-news-list -->
 					</div><!-- newslist_contents -->
 				</div><!-- newslist_flex -->
 			</div><!-- section_inner -->
 		</section>
-		<?php get_template_part("parts/recruit");?>
+		<?php get_template_part("parts/conversion");?>
 	</article>
 	<?php get_template_part("parts/hummenu"); ?>
 	<?php get_template_part("parts/footer"); ?>

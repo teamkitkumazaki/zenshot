@@ -1,0 +1,74 @@
+.comp-conversion-button{
+  .button_item{
+    margin-bottom: 10px;
+    &:nth-last-of-type(1){
+      margin-bottom: 0;
+    }
+    a{
+      position: relative;
+      overflow: hidden;
+      display: block;
+      color: $keyColor;
+      font-weight: 500;
+      background: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 17px 0;
+      font-size: 1.6rem;
+      box-shadow: 4px 5px 5px 1px rgba(41, 106, 212, 0.2);
+      line-height: 1;
+      border-radius: 5px;
+      &::before{
+        display: none;
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: #d8d8d8;
+        opacity: 0;
+        transition: opacity .3s;
+        will-change: opacity;
+      }
+      span{
+        position: relative;
+        z-index: 10;
+      }
+      &.contact{
+        background: linear-gradient(to left, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+        &::before{
+          background: linear-gradient(to right, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+        }
+      }
+      &:hover{
+        &::before{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-conversion-button{
+    @include flexSet;
+    justify-content: center;
+    .button_item{
+      max-width: 300px;
+      width: 100%;
+      margin-right: 15px;
+      margin-bottom: 0px;
+      &:nth-last-of-type(1){
+        margin-right: 0;
+      }
+      a{
+        padding: 20px 0;
+        font-size: 1.8rem;
+        &::before{
+          display: block;
+        }
+      }
+    }
+  }
+}
