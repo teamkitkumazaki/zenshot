@@ -13,9 +13,8 @@
 
 
 /*########## ページ個別レイアウト ##########*/
-@import 'pages/index.scss';
-@import 'pages/technology.scss';
-@import 'pages/corporate.scss';
+/*@import 'pages/index.scss';*/
+@import 'pages/caseList.scss';
 @import 'pages/newsDetail.scss';
 @import 'pages/underpage.scss';
 @import 'pages/404.scss';
@@ -54,6 +53,8 @@
 @import 'component/corporate/comp-office-slider.scss';
 @import 'component/corporate/comp-usecase-list.scss';
 
+/* 導入事例 */
+@import 'component/case/comp-case-list.scss'; /**/
 
 
 /* 最新情報 */

@@ -1,0 +1,111 @@
+.comp-case-list{
+  .case_item{
+    margin-bottom: 45px;
+    &:nth-last-of-type(1){
+      margin-bottom: 0;
+    }
+    .case_wrap{
+      display: block;
+      color: inherit;
+      .case_img{
+        position: relative;
+        display: block;
+        margin-bottom: 25px;
+        .portrait{
+          width: 100%;
+        }
+        .logo{
+          position: absolute;
+          left: 10px;
+          bottom: 10px;
+          width: 90px;
+          border: 1px solid #d8d8d8;
+        }
+      }
+      .case_txt{
+        display: block;
+        margin-bottom: 20px;
+        .client_name{
+          display: block;
+          font-size: 1.2rem;
+          margin-bottom: 12px;
+        }
+        .case_ttl{
+          font-size: 1.6rem;
+          line-height: 1.76;
+        }
+      }
+    }
+    .comp-link-button{
+      max-width: 140px;
+      a{
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-case-list{
+    @include flexSet;
+    .case_item{
+      position: relative;
+      padding-bottom: 60px;
+      margin-bottom: 80px;
+      &:nth-last-of-type(1){
+        margin-bottom: 0;
+      }
+      .case_wrap{
+        transition: color .3s;
+        will-change: color;
+        .case_img{
+          overflow: hidden;
+          margin-bottom: 35px;
+          .logo{
+            width: 120px;
+          }
+          .portrait{
+            transition: transform .3s;
+            will-change: transform;
+          }
+        }
+        .case_txt{
+          margin-bottom: 0px;
+          .client_name{
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+          }
+          .case_ttl{
+            font-size: 1.8rem;
+            line-height: 1.76;
+          }
+        }
+        &:hover{
+          color: #646464;
+          .case_img{
+            .portrait{
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+      .comp-link-button{
+        position: absolute;
+        left:0;
+        bottom:0;
+        max-width: 150px;
+        width: 150px;
+      }
+    }
+    &.column2{
+      .case_item{
+        width: 47%;
+        margin-right: 6%;
+        &:nth-of-type(2n){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

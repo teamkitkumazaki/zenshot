@@ -1,0 +1,33 @@
+.page-case-list{
+  padding-top: 110px;
+  .section-case-list{
+    padding-bottom: 60px;
+    .caselist_flex{
+      .caselist_ttl{
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .page-case-list{
+    padding-top: 190px;
+    .section-case-list{
+      padding-bottom: 120px;
+      .caselist_flex{
+        @include flexSet;
+        align-items: flex-start;
+        justify-content: space-between;
+        .caselist_ttl{
+          width: 30%;
+          margin-bottom: 40px;
+        }
+        .caselist_contents{
+          width: 70%;
+        }
+      }
+    }
+  }
+
+}
