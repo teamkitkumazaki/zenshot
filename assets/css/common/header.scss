@@ -101,15 +101,6 @@ header{
       height: 3px;
     }
     .header_inner {
-      position:relative;
-      z-index: 15;
-      width: 100%;
-      @include flexSet;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid $bgColor;
-      transition: border .2s;
-      will-change: border;
       .header_left{
         padding-left: 25px;
         @include flexSet;
@@ -117,6 +108,7 @@ header{
         .header_logo{
           margin-right: 30px;
           a{
+            @include hover;
             display: block;
             width: 180px;
           }

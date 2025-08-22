@@ -1,93 +1,86 @@
-@-webkit-keyframes circle {
-  0% {
-    stroke-dasharray: 80, 20;
-    transform: rotate(0deg);
-  }
-  100% {
-    stroke-dasharray: 80, 20;
-    transform: rotate(360deg);
-  }
-}
-
 .comp-link-button{
-  max-width: 140px;
   a{
+    position: relative;
     @include flexSet;
     align-items: center;
     color: inherit;
+    padding: 10px 15px;
+    background: $keyColor;
+    border-radius: 200px;
+    color: #fff;
+    line-height: 1.2;
+    overflow: hidden;
     .txt{
       position: relative;
-      font-size: 1.4rem;
-      @include larsseit;
-      padding-right: 15px;
-      padding-bottom: 5px;
-      margin-right: 10px;
+      z-index: 10;
+      font-size: 1.3rem;
+      margin-right: 7px;
+    }
+    .arrow{
+      position: relative;
+      z-index: 10;
+      width: 12px;
+      .cls-1{
+        fill:none;
+        stroke: #fff;
+        stroke-miterlimit:10;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-link-button{
+    a{
+      position: relative;
+      @include flexSet;
+      justify-content: space-between;
+      align-items: center;
+      color: inherit;
+      padding: 10px 15px;
+      background: $keyColor;
+      border-radius: 200px;
+      color: #fff;
+      line-height: 1.2;
+      overflow: hidden;
+      transition: color .2s;
+      will-change: color;
       &::before{
         display: block;
         content: "";
         position: absolute;
-        bottom:0;
-        left:0;
-        width: 100%;
-        height: 1px;
-        background: $keyColor;
-      }
-    }
-    .caret{
-      position: relative;
-      width: 50px;
-      height: 50px;
-      @include flexSet;
-      align-items: center;
-      justify-content: center;
-      transform-origin: center center;
-      transition: transform .5s;
-      will-change: transform;
-      .arrow{
-        width: 20px;
-        .cls-1{
-          fill:none;
-          stroke:$keyColor;
-          stroke-miterlimit:10;
-        }
-      }
-      .circle{
-        position: absolute;
         top:0;
         left:0;
-        width: 50px;
-        .st1{
-          fill: none;
-          stroke: $keyColor;
-          stroke-miterlimit: 10;
-          transform-origin: center center;
-          animation: circle 3s linear infinite;
-        }
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+        opacity: 0;
+        transition: opacity .2s;
+        will-change: opacity;
       }
-    }
-    &:hover{
-      .caret{
-        transform: scale(1.1);
-      }
-    }
-  }
-  &.white{
-    a{
-      color: $fontColorWhite;
       .txt{
-        &::before{
-          background: $fontColorWhite;
+        position: relative;
+        z-index: 10;
+        font-size: 1.5rem;
+        margin-right: 7px;
+      }
+      .arrow{
+        position: relative;
+        z-index: 10;
+        width: 14px;
+        transform: translate(0,1px);
+        .cls-1{
+          stroke-width: 1px;
         }
       }
-      .caret{
+      &:hover{
+        color: #fff;
+        &::before{
+          opacity: 1;
+        }
         .arrow{
           .cls-1{
-            stroke:$fontColorWhite;
-          }
-        }
-        .circle{
-          .st1{
-            stroke: $fontColorWhite;
+            stroke: #fff;
           }
         }
       }
