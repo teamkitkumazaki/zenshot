@@ -53,7 +53,7 @@
       padding-bottom: 60px;
       margin-bottom: 80px;
       &:nth-last-of-type(1){
-        margin-bottom: 0;
+        margin-bottom: 80px;
       }
       .case_wrap{
         transition: color .3s;
@@ -103,6 +103,15 @@
         width: 47%;
         margin-right: 6%;
         &:nth-of-type(2n){
+          margin-right: 0;
+        }
+      }
+    }
+    &.column3{
+      .case_item{
+        width: 30%;
+        margin-right: 5%;
+        &:nth-of-type(3n){
           margin-right: 0;
         }
       }

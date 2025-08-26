@@ -1,0 +1,140 @@
+.comp-case-article{
+  hr{
+    padding: 0;
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+    margin: 30px auto 25px;
+    border: none;
+  }
+  .article_item{
+    .article_img{
+      margin: 25px auto;
+      img{
+        width: 100%;
+      }
+    }
+    .article_ttl{
+      margin: 20px auto;
+      font-size: 2.0rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .article_desc{
+      margin: 0 auto 20px;
+      @include basicP;
+    }
+    .article_voice{
+      margin-top: 20px;
+      .voice_item{
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #d8d8d8;
+        &:nth-last-of-type(1){
+          margin-bottom: 0;
+          padding-bottom: 0;
+          border-bottom: 0px solid #d8d8d8;
+        }
+        .voice_img{
+          margin-bottom: 25px;
+          img{
+            width: 100%;
+          }
+        }
+        .voice_contents{
+          .voice_name{
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            white-space: pre-line;
+          }
+          .voice_description{
+            @include basicP;
+          }
+        }
+      }
+    }
+    .usescene_wrap{
+      .usescene_item{
+        margin-bottom: 25px;
+        .img_item{
+          margin-bottom: 15px;
+        }
+        .caption{
+          font-size: 1.3rem;
+          line-height: 1.76;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-case-article{
+    hr{
+      margin: 40px auto 35px;
+    }
+    .article_item{
+      .article_img{
+        margin: 50px auto 40px;
+        img{
+          width: 100%;
+        }
+      }
+      .article_ttl{
+        margin: 40px auto 25px;
+        font-size: 2.6rem;
+      }
+      .article_desc{
+        margin: 0 auto 40px;
+        line-height: 2;
+      }
+      .article_voice{
+        margin-top: 40px;
+        .voice_item{
+          @include flexSet;
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          .voice_img{
+            width: 200px;
+            margin-right: 30px;
+            margin-bottom: 0px;
+          }
+          .voice_contents{
+            width: calc(100% - 230px);
+            .voice_name{
+              font-size: 1.8rem;
+              line-height: 1.6;
+            }
+            .voice_description{
+              p{
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+      }
+      .usescene_wrap{
+        margin-top: 40px;
+        .usescene_item{
+          margin-bottom: 40px;
+          .img_item{
+            margin-bottom: 20px;
+          }
+          .caption{
+            width: 100%;
+            font-size: 1.5rem;
+          }
+          &.image2{
+            @include flexSet;
+            justify-content: space-between;
+            .img_item{
+              width: calc(50% - 10px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

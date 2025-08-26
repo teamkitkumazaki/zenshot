@@ -1,0 +1,122 @@
+.page-case-detail{
+  padding-top: 70px;
+  .comp-page-bread{
+    padding: 10px 15px 0;
+    margin-bottom: 40px;
+  }
+  .section-case-detail{
+    padding-bottom: 50px;
+    .case_detail_flex{
+      .detail_header{
+        margin-bottom: 25px;
+        .comp-page-bread{
+          margin-bottom: 25px;
+        }
+        .case_wrapper{
+          @include flexSet;
+          align-items: center;
+          margin-bottom: 15px;
+          .category{
+            padding: 7px 10px;
+            border: 1px solid $keyColor;
+            border-radius: 200px;
+            font-size: 1.2rem;
+            margin-right: 10px;
+          }
+          .client_name{
+            font-size: 1.2rem;
+          }
+        }
+        .case_title{
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 1.5;
+          word-break: break-all;
+        }
+        .comp-case-index{
+          display: none;
+        }
+      }
+      .case_article{
+        .case_movie_wrap{
+          position: relative;
+          height: 49vw;
+          margin-bottom: 25px;
+          iframe{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top:0;
+            left:0;
+          }
+        }
+        .comp-case-index{
+          display: block;
+        }
+      }
+    }
+  }
+  .section-case-list{
+    border-top: 1px solid #d8d8d8;
+  }
+}
+
+@media screen and (min-width: 980px){
+  .page-case-detail{
+    padding-top: 100px;
+    overflow: visible;
+    .comp-page-bread{
+      padding: 10px 30px 0;
+      margin-bottom: 80px;
+    }
+    .section-case-detail{
+      padding-bottom: 120px;
+      .case_detail_flex{
+        @include flexSet;
+        align-items: flex-start;
+        justify-content: space-between;
+        .detail_header{
+          width: 30%;
+          position: sticky;
+          top: 140px;
+          left:0;
+          margin-bottom: 0px;
+          .case_wrapper{
+            @include flexSet;
+            align-items: center;
+            margin-left: -3px;
+            margin-bottom: 15px;
+            .category{
+              padding: 7px 10px;
+              font-size: 1.4rem;
+            }
+            .client_name{
+              font-size: 1.4rem;
+            }
+          }
+          .case_title{
+            font-size: 1.8rem;
+            line-height: 1.8;
+          }
+          .comp-case-index{
+            display: block;
+          }
+        }
+        .case_article{
+          width: 60%;
+          .case_movie_wrap{
+            position: relative;
+            height: 29vw;
+            margin-bottom: 40px;
+          }
+          .comp-case-index{
+            display: none;
+          }
+        }
+      }
+    }
+    .section-case-list{
+      border-top: 1px solid #d8d8d8;
+    }
+  }
+}
