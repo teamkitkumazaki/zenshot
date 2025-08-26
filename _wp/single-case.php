@@ -1,69 +1,31 @@
 <!doctype html>
-<html style="--wHeight: 100vh; --wHeightPx: 100vh; --scroll: 0; --wHeightFixedPx: 100vh;">
-
+<html style="--wHeight:100vh; --wHeightPx:100vh; --scroll:0; --wHeightFixedPx:100vh;">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="canonical" href="https://demo.noske.design/yo-sauna">
-	<title>Zen Intelligence株式会社 - 現場とクラウドの結節点を担う</title>
-	<meta name="description" content="Phisical Intelligence - 現場を理解した、現場で働く人のためのAIで、これまでテクノロジーによる業務効率化が遅れていた、ブルーカラー領域の仕事をインテリジェンスで塗り替える。">
-	<link href="assets/img/icon/favicon.ico" rel="apple-touch-icon" sizes="200x200">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/icon/favicon.ico">
-	<meta property="og:type" content="article">
-	<meta property="og:image" content="assets/img/ogp/ogp.jpg">
-	<meta property="og:url" content="https://demo.noske.design/yo-sauna">
-	<meta property="og:locale" content="ja_JP">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="Zen Intelligence株式会社 - 現場とクラウドの結節点を担う">
-	<meta property="og:description" content="Phisical Intelligence - 現場を理解した、現場で働く人のためのAIで、これまでテクノロジーによる業務効率化が遅れていた、ブルーカラー領域の仕事をインテリジェンスで塗り替える。">
-	<meta property="og:url" content="https://demo.noske.design/yo-sauna">
-	<meta property="og:site_name" content="Zen Intelligence株式会社 - 現場とクラウドの結節点を担う">
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:description" content="Phisical Intelligence - 現場を理解した、現場で働く人のためのAIで、これまでテクノロジーによる業務効率化が遅れていた、ブルーカラー領域の仕事をインテリジェンスで塗り替える。">
-	<meta name="twitter:title" content="Zen Intelligence株式会社 - 現場とクラウドの結節点を担う">
-	<!-- font setting -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400,500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/style.css?ver240125_1623">
+	<?php get_template_part("parts/head"); ?>
 </head>
-
 <body>
-	<header>
-		<div class="header_inner">
-			<div class="header_left">
-				<div class="header_logo">
-					<a href="#aaaa">
-						<img src="assets/img/common/h_logo.svg">
-					</a>
-				</div>
-				<nav class="header_navigation">
-					<ul>
-						<li><a href="#aaaa">zenshotとは</a></li>
-						<li><a href="#aaaa">導入事例</a></li>
-						<li><a href="#aaaa">導入の流れ</a></li>
-						<li><a href="#aaaa">お知らせ</a></li>
-					</ul>
-				</nav>
-			</div><!-- header_left -->
-			<div class="header_right">
-				<div id="humButton" class="hummenu_wrap">
-					<button><span></span><span></span></button>
-				</div>
-				<div class="contact_button">
-					<a href="#aaaa">
-						<span class="txt">お問い合わせ</span>
-						<span class="caret">
-							<svg viewBox="0 0 21.95 19.13">
-								<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
-							</svg>
-						</span>
-					</a>
-				</div><!-- contact_button -->
-			</div><!-- header_right -->
-		</div><!-- header_inner -->
+	<header class="underpage">
+		<?php get_template_part("parts/header"); ?>
 	</header>
+	<?php
+		$post_id = $post->ID; //ポストID
+		$authorID = $post->post_author; // 著者のID
+		$meta = get_post_meta($post_id); //ポストID
+		$image = get_the_post_thumbnail_url($id, 'full');
+		$image_sp = get_the_post_thumbnail_url($id, 'medium_large');
+		$date = get_the_date('Y.m.d');
+		$sp_main_url = wp_get_attachment_image_src($image_sp, 'medium_large');
+		$page_ttl = get_the_title($post_id);
+		$article_subttl = SCF::get('article_subttl',$post_id);
+		$article_description = SCF::get('article_description',$post_id);
+		$desc_flag = SCF::get('desc_flag',$post_id);
+		$article_content = SCF::get('article_contents',$post_id);
+		$contents_length = 0;
 
+		/* カテゴリー */
+		$terms = get_the_terms($post->ID, 'news-category');
+
+	?>
 	<article id="caseDetail" class="page-case-detail">
 		<div class="comp-page-bread">
 			<div class="link_wrap">
@@ -165,7 +127,7 @@
 							</div><!-- comp-case-index -->
 							<div class="article_item">
 								<div class="article_img">
-									<img src="assets/img/case/article_img01.jpg">
+									<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img01.jpg">
 								</div>
 								<h2 class="article_ttl">導入背景</h2>
 								<div class="article_desc">
@@ -176,7 +138,7 @@
 							</div>
 							<div class="article_item">
 								<div class="article_img">
-									<img src="assets/img/case/article_img02.jpg">
+									<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img02.jpg">
 								</div>
 								<h2 class="article_ttl">導入効果</h2>
 								<div class="article_desc">
@@ -190,7 +152,7 @@
 								<div class="article_voice">
 									<div class="voice_item">
 										<div class="voice_img">
-											<img src="assets/img/news/people_img.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/news/people_img.jpg">
 										</div>
 										<div class="voice_contents">
 											<h3 class="voice_name">代表取締役社長<br>後藤 昇 様</h3>
@@ -203,7 +165,7 @@
 									</div>
 									<div class="voice_item">
 										<div class="voice_img">
-											<img src="assets/img/news/people_img.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/news/people_img.jpg">
 										</div>
 										<div class="voice_contents">
 											<h3 class="voice_name">代表取締役社長<br>後藤 昇 様</h3>
@@ -222,28 +184,28 @@
 								<div class="usescene_wrap">
 									<div class="usescene_item image2">
 										<div class="img_item">
-											<img src="assets/img/case/article_img03.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img03.jpg">
 										</div>
 										<div class="img_item">
-											<img src="assets/img/case/article_img04.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img04.jpg">
 										</div>
 										<p class="caption">現場での撮影の様子</p>
 									</div>
 									<div class="usescene_item">
 										<div class="img_item">
-											<img src="assets/img/case/article_img05.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img05.jpg">
 										</div>
 										<p class="caption">作成された360度現場ビュー。天井・壁・床、360度ぐるりと現場全体を確認できる</p>
 									</div>
 									<div class="usescene_item">
 										<div class="img_item">
-											<img src="assets/img/case/article_img06.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img06.jpg">
 										</div>
 										<p class="caption">隠蔽部(断熱材・下地)の前後の状態を簡単に比較・確認できる</p>
 									</div>
 									<div class="usescene_item">
 										<div class="img_item">
-											<img src="assets/img/case/article_img07.jpg">
+											<img src="<?php echo get_template_directory_uri();?>/assets/img/case/article_img07.jpg">
 										</div>
 										<p class="caption">基礎工程も網羅的に記録することができる</p>
 									</div>
@@ -305,8 +267,8 @@
 					<div class="case_item">
 						<a class="case_wrap" href="#aaaa">
 							<span class="case_img">
-								<img class="portrait" src="assets/img/case/case_img01.jpg">
-								<img class="logo" src="assets/img/case/case_logo01.jpg">
+								<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img01.jpg">
+								<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo01.jpg">
 							</span>
 							<span class="case_txt">
 								<span class="client_name">住友林業株式会社様</span>
@@ -327,8 +289,8 @@
 					<div class="case_item">
 						<a class="case_wrap" href="#aaaa">
 							<span class="case_img">
-								<img class="portrait" src="assets/img/case/case_img02.jpg">
-								<img class="logo" src="assets/img/case/case_logo02.jpg">
+								<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img02.jpg">
+								<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo02.jpg">
 							</span>
 							<span class="case_txt">
 								<span class="client_name">株式会社リビングディー</span>
@@ -349,8 +311,8 @@
 					<div class="case_item">
 						<a class="case_wrap" href="#aaaa">
 							<span class="case_img">
-								<img class="portrait" src="assets/img/case/case_img03.jpg">
-								<img class="logo" src="assets/img/case/case_logo03.jpg">
+								<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img03.jpg">
+								<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo03.jpg">
 							</span>
 							<span class="case_txt">
 								<span class="client_name">ネクストイノベーション株式会社</span>
@@ -371,87 +333,10 @@
 				</div>
 			</div><!-- section_inner -->
 		</section>
-		<section class="section-conversion comp-section-conversion">
-			<div class="section_inner">
-				<div class="contact_title">
-					<h2 class="contact_ttl">まずは相談してみませんか？</h2>
-					<div class="contact_desc">
-						<p>お悩みに合わせて、<span>活用方法をご案内いたします。</span><br>ぜひお気軽にご相談ください。</p>
-					</div>
-				</div><!-- comp-contact-title -->
-				<div class="comp-conversion-button">
-					<div class="button_item">
-						<a class="contact" href="#aaaa"><span>お問い合わせ</span></a>
-					</div>
-					<div class="button_item">
-						<a class="flow" href="#aaaa"><span>導入の流れ</span></a>
-					</div>
-				</div><!-- comp-conversion-button -->
-			</div><!-- section_inner -->
-		</section>
+		<?php get_template_part("parts/conversion");?>
 	</article>
-	<div id="hummenu" class="comp-hummenu">
-		<div class="contents">
-			<div class="hummenu_inner">
-				<nav class="hummenu_navigation">
-					<ul>
-						<li><a href="#aaaa">HOME</a></li>
-						<li><a href="#aaaa">zenshotとは</a></li>
-						<li><a href="#aaaa">導入事例</a></li>
-						<li><a href="#aaaa">導入の流れ</a></li>
-						<li><a href="#aaaa">お知らせ</a></li>
-					</ul>
-					<div class="comp-conversion-button">
-						<div class="button_item">
-							<a class="contact" href="#aaaa"><span>お問い合わせ</span></a>
-						</div>
-						<div class="button_item">
-							<a class="flow" href="#aaaa"><span>導入の流れ</span></a>
-						</div>
-					</div><!-- comp-conversion-button -->
-				</nav>
-				<div class="hummenu_lower">
-					<div class="privacy_link">
-						<div class="link_item">
-							<a href="#aaaa">プライバシーポリシー</a>
-						</div>
-						<div class="link_item">
-							<a href="#aaaa">運営会社</a>
-						</div>
-					</div>
-				</div>
-			</div><!-- hummenu_inner -->
-		</div><!-- contents -->
-	</div><!-- comp-hummenu -->
-	<footer>
-		<div class="footer_inner">
-			<div class="footer_logo">
-				<a href="#aaaa">
-					<img src="assets/img/common/f_logo.svg">
-				</a>
-			</div>
-			<div class="footer_content">
-				<nav class="footer_navigation">
-					<ul>
-						<li><a href="#aaaa">zenshotとは</a></li>
-						<li><a href="#aaaa">導入事例</a></li>
-						<li><a href="#aaaa">導入の流れ</a></li>
-						<li><a href="#aaaa">お知らせ</a></li>
-						<li><a href="#aaaa">お問い合わせ</a></li>
-					</ul>
-				</nav>
-				<div class="copyright_wrap">
-					<ul>
-						<li><a href="#aaaa">プライバシーポリシー</a></li>
-						<li><a href="#aaaa">運営会社</a></li>
-					</ul>
-					<p class="copyright">© 2025 zen intelligence Inc. All rights reserved. </p>
-				</div>
-			</div>
-		</div><!-- footer_inner -->
-	</footer>
+	<?php get_template_part("parts/hummenu"); ?>
+	<?php get_template_part("parts/footer"); ?>
 </body>
-<!-- <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="assets/js/layout.js"></script> -->
-
+<?php get_template_part("parts/script"); ?>
 </html>
