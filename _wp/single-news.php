@@ -70,7 +70,6 @@
 								<?php if ($d['article_img']):?>
 								<div class="img_wrap">
 									<img
-										class="<?= $d['media_size'];?>"
 										src="<?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?>"
 										srcset="<?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?> 1440w, <?= wp_get_attachment_image_src($d['article_img'], 'medium_large')[0] ?> 768w, <?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?> 2048w"
 									>
@@ -136,7 +135,6 @@
 							<?php
 								$order = 0;
 								$param = array(
-									'has_password' => $login_only,
 									'post_type' => 'news',
 									'posts_per_page' => 5,
 									'post_status'  => 'publish',

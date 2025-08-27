@@ -441,7 +441,7 @@ section .section_inner {
 }
 @media screen and (min-width: 720px) {
   section .section_inner {
-    width: 86%;
+    width: 82%;
     max-width: 1590px;
   }
 }
@@ -746,7 +746,7 @@ footer .footer_inner {
 }
 @media screen and (min-width: 720px) {
   footer .footer_inner {
-    width: 86%;
+    width: 82%;
     max-width: 1590px;
   }
 }
@@ -1299,6 +1299,47 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   .page-news-detail .section-news-contents {
     padding-bottom: 100px;
     margin-bottom: 100px;
+  }
+}
+.page-contact .section-form {
+  padding-bottom: 60px;
+}
+.page-contact .section-form .contact_flex .contact_ttl {
+  margin-bottom: 30px;
+}
+.page-contact .section-form .contact_flex .contact_ttl .comp-page-bread {
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .page-contact {
+    padding-top: 180px;
+  }
+  .page-contact .section-form {
+    padding-bottom: 120px;
+  }
+  .page-contact .section-form .contact_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .page-contact .section-form .contact_flex .contact_ttl {
+    width: 33%;
+    margin-bottom: 0px;
+  }
+  .page-contact .section-form .contact_flex .contact_ttl .comp-page-bread {
+    margin-bottom: 20px;
+  }
+  .page-contact .section-form .contact_flex .contact_form {
+    width: 60%;
   }
 }
 .page-underpage {
@@ -2182,9 +2223,6 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-right: 20px;
   margin-bottom: 12px;
   cursor: pointer;
@@ -2203,10 +2241,10 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   height: 16px;
   margin-right: 10px;
   background: #fff;
-  margin-bottom: -2px;
+  margin-top: 4px;
   cursor: pointer;
   position: relative;
-  border: 1px solid #fff;
+  border: 1px solid #d8d8d8;
 }
 .comp-form-wrap .form_item .form_box .radio_box label .radio_checker::after {
   display: block;
@@ -2223,6 +2261,12 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   -webkit-transition: width 0.15s, height 0.15s;
   transition: width 0.15s, height 0.15s;
   will-change: width, height;
+}
+.comp-form-wrap .form_item .form_box .radio_box label .radio_checker.radio {
+  border-radius: 50% !important;
+}
+.comp-form-wrap .form_item .form_box .radio_box label .radio_checker.radio::after {
+  border-radius: 50% !important;
 }
 .comp-form-wrap .form_item .form_box .radio_box label input[type=radio] + .radio_checker {
   border-radius: 0px;
@@ -2244,6 +2288,13 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   line-height: 1.75;
   letter-spacing: 0.64px;
   cursor: pointer;
+}
+.comp-form-wrap .form_item .form_box .radio_box label.fullw {
+  width: 100%;
+  margin-right: 0;
+}
+.comp-form-wrap .form_item .form_box .radio_box label.fullw .name {
+  width: calc(100% - 30px);
 }
 .comp-form-wrap .form_item .form_box .radio_box .optinonal_input {
   width: 100%;
@@ -2342,7 +2393,7 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   margin-bottom: -2px;
   cursor: pointer;
   position: relative;
-  border: 1px solid #979797;
+  border: 1px solid #d8d8d8;
 }
 .comp-form-wrap .privacy_wrap .agreement .agree_wrap label .radio_checker::after {
   display: block;
@@ -2622,14 +2673,14 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
   .comp-form-wrap .form_item .form_box .radio_box label .radio_checker {
     background: #fff;
     margin-bottom: -2px;
-    border: 1px solid #fff;
+    border: 1px solid #d8d8d8;
   }
   .comp-form-wrap .form_item .form_box .radio_box label .radio_checker::after {
     background: #15181B;
   }
   .comp-form-wrap .form_item .form_box .radio_box label input[type=checkbox]:checked + .radio_checker,
   .comp-form-wrap .form_item .form_box .radio_box label input[type=radio]:checked + .radio_checker {
-    border: 1px solid #fff;
+    border: 1px solid #d8d8d8;
   }
   .comp-form-wrap .form_item .form_box .radio_box label .name {
     font-size: 1.5rem;
@@ -3092,7 +3143,7 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
 }
 @media screen and (min-width: 720px) {
   .comp-section-index-main .title_wrap {
-    width: 86%;
+    width: 82%;
     max-width: 1590px;
   }
 }
@@ -3168,7 +3219,7 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
 }
 @media screen and (min-width: 980px) and (min-width: 720px) {
   .comp-section-index-main .title_wrap {
-    width: 86%;
+    width: 82%;
     max-width: 1590px;
   }
 }

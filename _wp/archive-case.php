@@ -37,19 +37,52 @@
 					</div><!-- caselist_ttl -->
 					<div class="caselist_contents">
 						<div class="comp-case-list column2">
+							<?php
+								$order = 0;
+								$param = array(
+									'post_type' => 'case',
+									'posts_per_page' => 10,
+									'post_status'  => 'publish',
+									'order' => 'DESC',
+									'paged' => $paged,
+								);
+								$the_query = new WP_Query( $param );
+								$wp_query->query($param);
+								if($wp_query->have_posts()): while($wp_query->have_posts()) : $wp_query->the_post();
+							?>
+							<?php
+								$order = intval($order) + intval(1);
+								$post_id = get_the_ID();
+								$page_ttl = get_the_title($post_id);
+								$image = get_the_post_thumbnail_url($id, 'medium_large');
+								$image_sp = get_the_post_thumbnail_url($id, 'medium_large');
+								$date = get_the_date('Y.m.d');
+								$client_name = SCF::get('client_name',$id);
+								$client_logo = SCF::get('client_logo',$post_id);
+								$client_logo_url = wp_get_attachment_image_src($client_logo, 'medium_large');
+								/* カテゴリー */
+								$terms = get_the_terms($post->ID, 'news-category');
+								if ($terms) :
+									foreach ($terms as $term) {
+										$category_name = $term->name;
+										$category_slug = $term->slug;
+									}
+
+								endif;
+							 ?>
 							<div class="case_item">
-								<a class="case_wrap" href="#aaaa">
+								<a class="case_wrap" href="<?php the_permalink();?>">
 									<span class="case_img">
-										<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img01.jpg">
-										<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo01.jpg">
+										<img loading="lazy" class="portrait" src="<?= $image ?>" srcset="<?= $image ?> 1440w, <?= $image_sp ?> 768w, <?= $image ?> 2048w">
+										<img class="logo" src="<?= $client_logo_url[0];?>">
 									</span>
 									<span class="case_txt">
-										<span class="client_name">住友林業株式会社様</span>
-										<span class="case_ttl">AI施工管理サービス「zenshot」を全ての工事現場に導入し、現場監督の移動時間を最大60%削減。</span>
+										<span class="client_name"><?= $client_name;?></span>
+										<span class="case_ttl"><?= $page_ttl;?></span>
 									</span>
 								</a>
 								<div class="comp-link-button">
-									<a href="#aaaa">
+									<a href="<?php the_permalink();?>">
 										<span class="txt">詳細を見る</span>
 										<span class="arrow">
 											<svg viewBox="0 0 21.95 19.13">
@@ -59,94 +92,7 @@
 									</a>
 								</div>
 							</div>
-							<div class="case_item">
-								<a class="case_wrap" href="#aaaa">
-									<span class="case_img">
-										<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img02.jpg">
-										<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo02.jpg">
-									</span>
-									<span class="case_txt">
-										<span class="client_name">株式会社リビングディー</span>
-										<span class="case_ttl">AI施工管理サービス「zenshot」を全支店に導入し、チーム管理体制で急成長を支える。</span>
-									</span>
-								</a>
-								<div class="comp-link-button">
-									<a href="#aaaa">
-										<span class="txt">詳細を見る</span>
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
-											</svg>
-										</span>
-									</a>
-								</div>
-							</div>
-							<div class="case_item">
-								<a class="case_wrap" href="#aaaa">
-									<span class="case_img">
-										<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img03.jpg">
-										<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo03.jpg">
-									</span>
-									<span class="case_txt">
-										<span class="client_name">ネクストイノベーション株式会社</span>
-										<span class="case_ttl">AI施工管理サービス「zenshot」を全ての工事現場に導入し、現場監督の移動時間を最大60%削減。</span>
-									</span>
-								</a>
-								<div class="comp-link-button">
-									<a href="#aaaa">
-										<span class="txt">詳細を見る</span>
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
-											</svg>
-										</span>
-									</a>
-								</div>
-							</div>
-							<div class="case_item">
-								<a class="case_wrap" href="#aaaa">
-									<span class="case_img">
-										<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img04.jpg">
-										<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo04.jpg">
-									</span>
-									<span class="case_txt">
-										<span class="client_name">近藤建設株式会社</span>
-										<span class="case_ttl">AI施工管理サービス「zenshot」を全支店に導入し、チーム管理体制で急成長を支える。</span>
-									</span>
-								</a>
-								<div class="comp-link-button">
-									<a href="#aaaa">
-										<span class="txt">詳細を見る</span>
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
-											</svg>
-										</span>
-									</a>
-								</div>
-							</div>
-							<div class="case_item">
-								<a class="case_wrap" href="#aaaa">
-									<span class="case_img">
-										<img class="portrait" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_img05.jpg">
-										<img class="logo" src="<?php echo get_template_directory_uri();?>/assets/img/case/case_logo05.jpg">
-									</span>
-									<span class="case_txt">
-										<span class="client_name">不動産SHOPナカジツ様</span>
-										<span class="case_ttl">AI施工管理サービス「zenshot」を全ての工事現場に導入し、現場監督の移動時間を最大60%削減。</span>
-									</span>
-								</a>
-								<div class="comp-link-button">
-									<a href="#aaaa">
-										<span class="txt">詳細を見る</span>
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
-											</svg>
-										</span>
-									</a>
-								</div>
-							</div>
+							<?php endwhile; else : endif; wp_reset_postdata();?>
 						</div><!-- comp-case-list -->
 					</div><!-- caselist_contents -->
 				</div><!-- caselist_flex -->

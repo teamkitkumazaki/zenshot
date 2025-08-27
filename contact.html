@@ -29,56 +29,60 @@
 </head>
 
 <body>
-	<header class="underpage">
+	<header>
 		<div class="header_inner">
 			<div class="header_left">
-				<a href="#aaaa">
-					<img src="assets/img/common/header_logo.svg">
-				</a>
-			</div><!-- header_left -->
-			<div class="header_right">
+				<div class="header_logo">
+					<a href="#aaaa">
+						<img src="assets/img/common/h_logo.svg">
+					</a>
+				</div>
 				<nav class="header_navigation">
 					<ul>
-						<li><a href="#aaaa">技術的信念</a></li>
-						<li><a href="#aaaa">会社概要</a></li>
+						<li><a href="#aaaa">zenshotとは</a></li>
+						<li><a href="#aaaa">導入事例</a></li>
+						<li><a href="#aaaa">導入の流れ</a></li>
 						<li><a href="#aaaa">お知らせ</a></li>
-						<li><a href="#aaaa">お問い合わせ</a></li>
 					</ul>
-					<div class="saiyo_link">
-						<a href="#aaaa">
-							<span class="txt">採用情報</span>
-							<span class="outer">
-								<svg viewBox="0 0 9.8 9.8">
-									<path class="cls-1" d="M9.3.5H2.5v6.8h6.8V.5Z" />
-									<path class="cls-1" d="M7.3,2.5H.5v6.8h6.8V2.5Z" />
-								</svg>
-							</span>
-						</a>
-					</div><!-- saiyo_link -->
 				</nav>
+			</div><!-- header_left -->
+			<div class="header_right">
 				<div id="humButton" class="hummenu_wrap">
 					<button><span></span><span></span></button>
 				</div>
+				<div class="contact_button">
+					<a href="#aaaa">
+						<span class="txt">お問い合わせ</span>
+						<span class="caret">
+							<svg viewBox="0 0 21.95 19.13">
+								<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0"></path>
+							</svg>
+						</span>
+					</a>
+				</div><!-- contact_button -->
 			</div><!-- header_right -->
 		</div><!-- header_inner -->
 	</header>
-	<article id="contact" class="page-underpage">
-		<section class="section-main">
-			<div class="section_inner">
-				<div class="section_inner_inner">
-					<div class="comp-underpage-title">
-						<h1 class="ttl">お問い合わせ</h1>
-						<div class="title_description">
-							<p>zen intelligenceにご興味をお持ちいただきありがとうございます。<br>お問い合わせはこちらのフォームよりお申し込みください。<br>お問い合わせ後、数日以内に担当者よりご連絡させていただきます。</p>
-						</div>
-					</div><!-- comp-underpage-title -->
-				</div><!-- section_inner_inner -->
-			</div><!-- section_inner -->
-		</section>
+
+	<article id="contact" class="page-contact">
 		<section class="section-form">
 			<div class="section_inner">
-				<div class="section_inner_inner">
-					<div class="company_contents">
+				<div class="contact_flex">
+					<div class="contact_ttl">
+						<div class="comp-page-bread">
+							<div class="link_wrap">
+								<a href="/">ホーム</a>
+								<span class="current">お問い合わせ</span>
+							</div>
+						</div><!-- comp-page-bread -->
+						<div class="comp-underpage-title">
+							<h1 class="ttl">お問い合わせ</h1>
+							<div class="title_description">
+								<p>zen intelligenceにご興味をお持ちいただきありがとうございます。お問い合わせはこちらのフォームよりお申し込みください。お問い合わせ後、数日以内に担当者よりご連絡させていただきます。</p>
+							</div>
+						</div><!-- comp-underpage-title -->
+					</div><!-- contact_ttl -->
+					<div class="contact_form">
 						<div id="contactWrap" class="comp-form-wrap">
 							<div class="form_item">
 								<div class="label_wrap">
@@ -120,6 +124,63 @@
 							</div>
 							<div class="form_item">
 								<div class="label_wrap">
+									<label class="">業種 (※複数選択可)</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<div class="radio_box">
+										<label>
+                			<input type="checkbox" name="category" value="注文住宅" >
+                			<span class="radio_checker"></span>
+											<span class="name">注文住宅</span>
+            				</label>
+										<label>
+											<input type="checkbox" name="category" value="分譲住宅" >
+											<span class="radio_checker"></span>
+											<span class="name">分譲住宅</span>
+										</label>
+										<label>
+											<input type="checkbox" name="category" value="リノベーション" >
+											<span class="radio_checker"></span>
+											<span class="name">リノベーション</span>
+										</label>
+										<label>
+											<input type="checkbox" name="category" value="部分リフォーム" >
+											<span class="radio_checker"></span>
+											<span class="name">部分リフォーム</span>
+										</label>
+
+										<label>
+											<input type="checkbox" name="category" value="ゼネコン" >
+											<span class="radio_checker"></span>
+											<span class="name">ゼネコン</span>
+										</label>
+										<label>
+											<input type="checkbox" name="category" value="サブコン" >
+											<span class="radio_checker"></span>
+											<span class="name">サブコン</span>
+										</label>
+
+										<label>
+											<input type="checkbox" name="category" value="内装" >
+											<span class="radio_checker"></span>
+											<span class="name">内装</span>
+										</label>
+										<label>
+											<input type="checkbox" name="category" value="設計" >
+											<span class="radio_checker"></span>
+											<span class="name">設計</span>
+										</label>
+										<label>
+											<input type="checkbox" name="category" value="その他" >
+											<span class="radio_checker"></span>
+											<span class="name">その他</span>
+										</label>
+								</div>
+								</div>
+							</div>
+							<div class="form_item">
+								<div class="label_wrap">
 									<label class="">部署名</label>
 									<span class="required">必須</span>
 								</div>
@@ -145,10 +206,154 @@
 									<input class="input-number bg" type="text" name="userphone" placeholder="012-3456-7890">
 								</div>
 							</div>
+							<div class="form_item">
+								<div class="label_wrap">
+									<label class="">検討タイミング</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<div class="radio_box">
+										<label>
+                			<input type="radio" name="timing" value="直近3ヶ月以内" >
+                			<span class="radio_checker radio"></span>
+											<span class="name">直近3ヶ月以内</span>
+            				</label>
+										<label>
+											<input type="radio" name="timing" value="時期は未定だが検討中" >
+											<span class="radio_checker radio"></span>
+											<span class="name">時期は未定だが検討中</span>
+										</label>
+										<label>
+											<input type="radio" name="timing" value="情報収集" >
+											<span class="radio_checker radio"></span>
+											<span class="name">情報収集</span>
+										</label>
+										<label>
+											<input type="radio" name="timing" value="特に検討していない" >
+											<span class="radio_checker radio"></span>
+											<span class="name">特に検討していない</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form_item">
+								<div class="label_wrap">
+									<label class="">住宅の年間棟数</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<input class="bg" type="text" name="homeNum" placeholder="回答例) 100棟">
+								</div>
+							</div>
+							<div class="form_item">
+								<div class="label_wrap">
+									<label class="">非住宅の年間案件数</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<input class="bg" type="text" name="otherNum" placeholder="回答例) 100棟">
+								</div>
+							</div>
+							<div class="form_item">
+								<div class="label_wrap">
+									<label class="">お問い合わせの背景 (※複数選択可)</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<div class="radio_box">
+										<label class="fullw">
+											<input type="checkbox" name="background" value="現場監督・代理人の移動時間を削減したい" >
+											<span class="radio_checker"></span>
+											<span class="name">現場監督・代理人の移動時間を削減したい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="写真の撮影漏れを無くしたい・撮影工数を減らしたい" >
+											<span class="radio_checker"></span>
+											<span class="name">写真の撮影漏れを無くしたい・撮影工数を減らしたい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="新人監督のサポートを効率的に行いたい" >
+											<span class="radio_checker"></span>
+											<span class="name">新人監督のサポートを効率的に行いたい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="お施主様・営業・設計などに現場状況を共有したい" >
+											<span class="radio_checker"></span>
+											<span class="name">お施主様・営業・設計などに現場状況を共有したい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="常駐から分業体制へ転換する際に活用したい" >
+											<span class="radio_checker"></span>
+											<span class="name">常駐から分業体制へ転換する際に活用したい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="報告書作成コストを削減したい" >
+											<span class="radio_checker"></span>
+											<span class="name">報告書作成コストを削減したい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="安全パトロールを遠隔化したい" >
+											<span class="radio_checker"></span>
+											<span class="name">安全パトロールを遠隔化したい</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="具体的な活用イメージはまだない" >
+											<span class="radio_checker"></span>
+											<span class="name">具体的な活用イメージはまだない</span>
+										</label>
+										<label class="fullw">
+											<input type="checkbox" name="background" value="その他" >
+											<span class="radio_checker"></span>
+											<span class="name">その他</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form_item">
+								<div class="label_wrap">
+									<label class="">zenshotのことをどこで知りましたか？</label>
+									<span class="required">必須</span>
+								</div>
+								<div class="form_box">
+									<div class="radio_box">
+										<label>
+                			<input type="radio" name="route" value="WEB上の記事">
+                			<span class="radio_checker radio"></span>
+											<span class="name">WEB上の記事</span>
+            				</label>
+										<label>
+											<input type="radio" name="route" value="新聞や雑誌の記事">
+											<span class="radio_checker radio"></span>
+											<span class="name">新聞や雑誌の記事</span>
+										</label>
+										<label>
+											<input type="radio" name="route" value="展示会">
+											<span class="radio_checker radio"></span>
+											<span class="name">展示会</span>
+										</label>
+										<label>
+											<input type="radio" name="route" value="知人・友人の紹介">
+											<span class="radio_checker radio"></span>
+											<span class="name">知人・友人の紹介</span>
+										</label>
+										<label>
+											<input type="radio" name="route" value="パンフレットやチラシ">
+											<span class="radio_checker radio"></span>
+											<span class="name">パンフレットやチラシ</span>
+										</label>
+										<label>
+											<input type="radio" name="route" value="その他">
+											<span class="radio_checker radio"></span>
+											<span class="name">その他</span>
+										</label>
+
+									</div>
+								</div>
+							</div>
 							<div class="form_item b_none">
 								<div class="label_wrap">
-									<label class="">お問い合わせ内容</label>
-									<span class="required">必須</span>
+									<label class="">その他、ご質問事項やご要望</label>
+									<span class="optional">任意</span>
 								</div>
 								<div class="form_box">
 									<textarea name="content" class="bg"></textarea>
@@ -176,83 +381,58 @@
 								</span>
 							</div>
 						</div><!-- comp-form-wrap -->
-					</div><!-- company_contents -->
-				</div><!-- section_inner_inner -->
+					</div><!-- contact_form -->
+				</div><!-- contact_flex -->
 			</div><!-- section_inner -->
 		</section>
-		<section class="section-recruit comp-section-recruit">
+		<section class="section-conversion comp-section-conversion">
 			<div class="section_inner">
-				<div class="flex_layout">
-					<div class="flex_left">
-						<div class="comp-section-title">
-							<h2 class="ttl">採用情報</h2>
-							<div class="ttl_description">
-								<p>Zen Intelligenceは、ともに基幹産業を変革する<br>仲間を積極的に募集しています。</p>
-							</div>
-							<div class="comp-link-button">
-								<a href="#aaaa">
-									<span class="txt">Details</span>
-									<span class="caret">
-										<span class="arrow">
-											<svg viewBox="0 0 21.95 19.13">
-												<path class="cls-1" d="M12.88.35l8.12,8.12c.6.6.6,1.58,0,2.18l-8.12,8.12M21.24,9.57H0" />
-											</svg>
-										</span>
-										<span class="circle">
-											<svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 62.9 62.9">
-												<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -13.0238 31.4424)" class="st1" cx="31.4" cy="31.4" rx="30.9" ry="30.9"></ellipse>
-											</svg>
-										</span>
-									</span>
-								</a>
-							</div><!-- comp-link-button -->
-						</div>
-					</div><!-- flex_left -->
-					<div class="flex_right">
-						<div class="img_wrap">
-							<img src="assets/img/common/recruit_img.jpg">
-						</div>
-					</div><!-- flex_right -->
-				</div><!-- flex_layout -->
+				<div class="contact_title">
+					<h2 class="contact_ttl">まずは相談してみませんか？</h2>
+					<div class="contact_desc">
+						<p>お悩みに合わせて、<span>活用方法をご案内いたします。</span><br>ぜひお気軽にご相談ください。</p>
+					</div>
+				</div><!-- comp-contact-title -->
+				<div class="comp-conversion-button">
+					<div class="button_item">
+						<a class="contact" href="#aaaa"><span>お問い合わせ</span></a>
+					</div>
+					<div class="button_item">
+						<a class="flow" href="#aaaa"><span>導入の流れ</span></a>
+					</div>
+				</div><!-- comp-conversion-button -->
 			</div><!-- section_inner -->
 		</section>
 	</article>
+
 	<div id="hummenu" class="comp-hummenu">
 		<div class="contents">
 			<div class="hummenu_inner">
 				<nav class="hummenu_navigation">
 					<ul>
-						<li><a href="#aaaa">技術的信念</a></li>
-						<li><a href="#aaaa">会社概要</a></li>
+						<li><a href="#aaaa">HOME</a></li>
+						<li><a href="#aaaa">zenshotとは</a></li>
+						<li><a href="#aaaa">導入事例</a></li>
+						<li><a href="#aaaa">導入の流れ</a></li>
 						<li><a href="#aaaa">お知らせ</a></li>
-						<li><a href="#aaaa">お問い合わせ</a></li>
 					</ul>
-					<div class="saiyo_link">
-						<a href="#aaaa">
-							<span class="txt">採用情報</span>
-							<span class="outer">
-								<svg viewBox="0 0 9.8 9.8">
-									<path class="cls-1" d="M9.3.5H2.5v6.8h6.8V.5Z"></path>
-									<path class="cls-1" d="M7.3,2.5H.5v6.8h6.8V2.5Z"></path>
-								</svg>
-							</span>
-						</a>
-					</div><!-- saiyo_link -->
+					<div class="comp-conversion-button">
+						<div class="button_item">
+							<a class="contact" href="#aaaa"><span>お問い合わせ</span></a>
+						</div>
+						<div class="button_item">
+							<a class="flow" href="#aaaa"><span>導入の流れ</span></a>
+						</div>
+					</div><!-- comp-conversion-button -->
 				</nav>
 				<div class="hummenu_lower">
-					<div class="footer_sns">
-						<div class="sns_item">
-							<a href="#aaaa"><img src="assets/img/common/icon_linkedin.svg"></a>
-						</div>
-						<div class="sns_item">
-							<a href="#aaaa"><img src="assets/img/common/icon_x.svg"></a>
-						</div>
-						<div class="sns_item">
-							<a href="#aaaa"><img src="assets/img/common/icon_note.svg"></a>
-						</div>
-					</div>
 					<div class="privacy_link">
-						<a href="#aaaa">プライバシーポリシー</a>
+						<div class="link_item">
+							<a href="#aaaa">プライバシーポリシー</a>
+						</div>
+						<div class="link_item">
+							<a href="#aaaa">運営会社</a>
+						</div>
 					</div>
 				</div>
 			</div><!-- hummenu_inner -->
@@ -260,55 +440,33 @@
 	</div><!-- comp-hummenu -->
 	<footer>
 		<div class="footer_inner">
-			<div class="footer_upper">
-				<div class="footer_logo">
-					<a href="#aaaa"><img src="assets/img/common/f_logo.svg"></a>
-				</div><!-- footer_logo -->
-				<div class="footer_sns">
-					<div class="sns_item">
-						<a href="#aaaa"><img src="assets/img/common/icon_linkedin.svg"></a>
-					</div>
-					<div class="sns_item">
-						<a href="#aaaa"><img src="assets/img/common/icon_x.svg"></a>
-					</div>
-					<div class="sns_item">
-						<a href="#aaaa"><img src="assets/img/common/icon_note.svg"></a>
-					</div>
-				</div><!-- footer_sns -->
-			</div><!-- footer_upper -->
-			<div class="footer_lower">
+			<div class="footer_logo">
+				<a href="#aaaa">
+					<img src="assets/img/common/f_logo.svg">
+				</a>
+			</div>
+			<div class="footer_content">
 				<nav class="footer_navigation">
 					<ul>
-						<li><a href="#aaaa">技術的信念</a></li>
-						<li><a href="#aaaa">会社概要</a></li>
-						<li class="dummy"></li>
+						<li><a href="#aaaa">zenshotとは</a></li>
+						<li><a href="#aaaa">導入事例</a></li>
+						<li><a href="#aaaa">導入の流れ</a></li>
 						<li><a href="#aaaa">お知らせ</a></li>
 						<li><a href="#aaaa">お問い合わせ</a></li>
 					</ul>
-					<div class="saiyo_link">
-						<a href="#aaaa">
-							<span class="txt">採用情報</span>
-							<span class="outer">
-								<svg viewBox="0 0 9.8 9.8">
-									<path class="cls-1" d="M9.3.5H2.5v6.8h6.8V.5Z" />
-									<path class="cls-1" d="M7.3,2.5H.5v6.8h6.8V2.5Z" />
-								</svg>
-							</span>
-						</a>
-					</div><!-- saiyo_link -->
 				</nav>
 				<div class="copyright_wrap">
-					<div class="privacy_link">
-						<a href="#aaaa">プライバシーポリシー </a>
-					</div>
-					<p class="copyright">©2025 Zen Intelligence Inc.  All rights reserved.</p>
+					<ul>
+						<li><a href="#aaaa">プライバシーポリシー</a></li>
+						<li><a href="#aaaa">運営会社</a></li>
+					</ul>
+					<p class="copyright">© 2025 zen intelligence Inc. All rights reserved. </p>
 				</div>
 			</div>
 		</div><!-- footer_inner -->
 	</footer>
 </body>
-<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="assets/js/layout.js"></script>
-<script type="text/javascript" src="assets/js/slick.js"></script>
+<!-- <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/js/layout.js"></script> -->
 
 </html>

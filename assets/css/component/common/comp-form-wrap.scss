@@ -282,7 +282,6 @@
         }
         label{
           @include flexSet;
-          align-items: center;
           margin-right: 20px;
           margin-bottom: 12px;
           cursor: pointer;
@@ -298,10 +297,10 @@
             height: 16px;
             margin-right: 10px;
             background: #fff;
-            margin-bottom: -2px;
+            margin-top: 4px;
             cursor: pointer;
             position: relative;
-            border: 1px solid #fff;
+            border: 1px solid #d8d8d8;
             &::after{
               display: block;
               content: "";
@@ -316,6 +315,12 @@
               background: $keyColor;
               transition: width .15s, height .15s;
               will-change: width, height;
+            }
+            &.radio{
+              border-radius: 50% !important;
+              &::after{
+                border-radius: 50% !important;
+              }
             }
           }
           input[type="radio"] + .radio_checker{
@@ -337,6 +342,13 @@
             line-height: 1.75;
             letter-spacing: 0.64px;
             cursor: pointer;
+          }
+          &.fullw{
+            width: 100%;
+            margin-right: 0;
+            .name{
+              width: calc(100% - 30px);
+            }
           }
         }
         .optinonal_input{
@@ -428,7 +440,7 @@
             margin-bottom: -2px;
             cursor: pointer;
             position: relative;
-            border: 1px solid $borderColor;
+            border: 1px solid #d8d8d8;
             &::after{
               display: block;
               content: "";
@@ -670,14 +682,14 @@
             .radio_checker{
               background: #fff;
               margin-bottom: -2px;
-              border: 1px solid #fff;
+              border: 1px solid #d8d8d8;
               &::after{
                 background: $keyColor;
               }
             }
             input[type="checkbox"]:checked + .radio_checker,
             input[type="radio"]:checked + .radio_checker{
-              border: 1px solid #fff;
+              border: 1px solid #d8d8d8;
             }
             .name{
               font-size: 1.5rem;

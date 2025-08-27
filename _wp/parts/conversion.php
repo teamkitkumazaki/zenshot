@@ -8,10 +8,10 @@
     </div><!-- comp-contact-title -->
     <div class="comp-conversion-button">
       <div class="button_item">
-        <a class="contact" href="#aaaa"><span>お問い合わせ</span></a>
+        <a class="contact" href="/contact"><span>お問い合わせ</span></a>
       </div>
       <div class="button_item">
-        <a class="flow" href="#aaaa"><span>導入の流れ</span></a>
+        <a class="flow" href="/flow"><span>導入の流れ</span></a>
       </div>
     </div><!-- comp-conversion-button -->
   </div><!-- section_inner -->
