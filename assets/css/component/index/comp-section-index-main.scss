@@ -28,14 +28,63 @@
     color: $fontColorWhite;
     padding-bottom: 0px;
     .site_ttl{
-      font-size: 2.6rem;
+      font-size: 2.3rem;
       font-weight: 400;
       line-height: 1.5;
+      text-align: left;
       margin-bottom: 7px;
     }
-    .title_en{
-      @include larsseit;
-      font-size: 1.2rem;
+    .main_button{
+      width: 50%;
+      display: block;
+      margin: 25px 0 0;
+      a{
+        position: relative;
+        @include flexSet;
+        align-items: center;
+        color: inherit;
+        background: linear-gradient(to right, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+        padding: 12px 25px;
+        border-radius: 200px;
+        overflow: hidden;
+        color: $keyColor;
+        &::before{
+          display: block;
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top:0;
+          left:0;
+          background: linear-gradient(to left, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+          z-index: 5;
+          opacity:0;
+          transition: opacity .5s;
+          will-change: opacity;
+        }
+        .txt{
+          position: relative;
+          z-index: 10;
+          font-size: 1.4rem;
+          padding-right: 6px;
+        }
+        .caret{
+          width: 12px;
+          position: relative;
+          z-index: 10;
+          .cls-1{
+            fill: none;
+            stroke: $keyColor;
+            stroke-width: 2px;
+            stroke-miterlimit: 10;
+          }
+        }
+        &:hover{
+          &::before{
+            opacity: 1;
+          }
+        }
+      }
     }
   }
   .main_movie_wrap{
@@ -91,8 +140,13 @@
         font-size: 4.2rem;
         margin-bottom: 10px;
       }
-      .title_en{
-        font-size: 1.4rem;
+      .main_button{
+        max-width: 220px;
+        margin-top: 30px;
+        a{
+          padding: 15px 0;
+          justify-content: center;
+        }
       }
     }
     .main_movie_wrap{

@@ -1,0 +1,102 @@
+@keyframes loop {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes loop2 {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes reverseloop {
+  0% {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes reverseloop2 {
+  0% {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.comp-partner-slider{
+  width: 100vw;
+  position: relative;
+  padding: 0;
+  .container-fluid{
+    .slider_box{
+      .simply-scroll-list{
+        position: relative;
+        width: auto !important;
+        display: flex;
+        flex-wrap: nowrap;
+        ul{
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: center;
+          will-change: transform, filter;
+          transform: translateZ(0);
+          li{
+            min-width: calc(var(--imgW) / 3);
+            img{
+              width: auto;
+              height: 50px;
+              border-radius: 0px;
+              @media screen and (min-width: 768px){
+                min-width: calc(var(--imgW) / 2);
+                width: auto;
+                height: 75px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &:nth-of-type(1){
+      .slider_box{
+        .simply-scroll-list{
+          ul{
+            &:first-child {
+              animation: loop 60s -30s linear infinite;
+              backface-visibility: hidden;
+              will-change: transform;
+            }
+          }
+          ul + ul{
+            animation: loop2 60s linear infinite;
+          }
+        }
+      }
+    }
+    &:nth-of-type(2){
+      .slider_box{
+        .simply-scroll-list{
+          ul{
+            &:first-child {
+              animation: reverseloop 60s -30s linear infinite;
+              backface-visibility: hidden;
+              will-change: transform;
+            }
+          }
+          ul + ul{
+            animation: reverseloop2 60s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}

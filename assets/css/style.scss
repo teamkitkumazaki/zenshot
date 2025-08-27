@@ -13,7 +13,7 @@
 
 
 /*########## ページ個別レイアウト ##########*/
-/*@import 'pages/index.scss';*/
+@import 'pages/index.scss';
 @import 'pages/caseList.scss';
 @import 'pages/caseDetail.scss';
 @import 'pages/newsDetail.scss';
@@ -42,7 +42,12 @@
 
 
 /* トップページ */
-@import 'component/index/comp-section-index-main.scss';
+@import 'component/index/comp-section-index-main.scss'; /**/
+@import 'component/index/comp-index-section-title.scss'; /**/
+@import 'component/index/comp-topic-list.scss'; /**/
+@import 'component/index/comp-partner-slider.scss'; /**/
+
+
 
 /* 導入事例 */
 @import 'component/case/comp-case-list.scss'; /**/

@@ -27,6 +27,17 @@
       }
     }
   }
+  &.white{
+    a{
+      background: #fff;
+      color: $keyColor;
+      .arrow{
+        .cls-1{
+          stroke: $keyColor;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 980px){
