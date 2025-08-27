@@ -1,4 +1,8 @@
 .comp-underpage-title{
+  .comp-page-bread{
+    padding-left: 2px;
+    margin-bottom: 15px;
+  }
   .ttl{
     font-weight: 400;
     font-size: 2.4rem;
@@ -12,7 +16,7 @@
   }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 980px){
   .comp-underpage-title{
     .ttl{
       font-size: 3.2rem;

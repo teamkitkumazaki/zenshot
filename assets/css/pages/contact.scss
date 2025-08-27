@@ -1,0 +1,43 @@
+.page-contact{
+  .section-form{
+    padding-bottom: 60px;
+    .contact_flex{
+      .contact_ttl{
+        margin-bottom: 30px;
+        .comp-page-bread{
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .page-contact{
+    padding-top: 180px;
+    .section-form{
+      padding-bottom: 120px;
+      .contact_flex{
+        @include flexSet;
+        align-items: flex-start;
+        justify-content: space-between;
+        .contact_ttl{
+          width: 33%;
+          margin-bottom: 0px;
+          .comp-page-bread{
+            margin-bottom: 20px;
+          }
+          .comp-underpage-title{
+            .title_description{
+              be{
+              }
+            }
+          }
+        }
+        .contact_form{
+          width: 60%;
+        }
+      }
+    }
+  }
+}

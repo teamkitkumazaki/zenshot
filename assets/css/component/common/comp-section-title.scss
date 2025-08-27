@@ -1,21 +1,11 @@
 .comp-section-title{
   .ttl{
     position: relative;
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     line-height: 1.5;
-    font-weight: 500;
-    padding-bottom: 20px;
+    font-weight: 400;
+    padding-bottom: 0px;
     margin-bottom: 0px;
-    &::before{
-      display: block;
-      content: "";
-      position: absolute;
-      left:0;
-      bottom:0;
-      width: 20px;
-      height: 3px;
-      background: $keyColor;
-    }
   }
   .ttl_description{
     margin-top: 20px;
@@ -38,19 +28,8 @@
   .comp-section-title{
     .ttl{
       position: relative;
-      font-size: 2.0rem;
-      font-weight: 500;
-      padding-bottom: 30px;
-      &::before{
-        display: block;
-        content: "";
-        position: absolute;
-        left:3px;
-        bottom:0;
-        width: 20px;
-        height: 3px;
-        background: $keyColor;
-      }
+      font-size: 3.2rem;
+      padding-bottom: 0px;
     }
     .ttl_description{
       margin-top: 30px;

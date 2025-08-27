@@ -3,20 +3,23 @@
   .section_inner{
     .newslist_flex{
       position: relative;
-      padding-bottom: 80px;
       .newslist_ttl{
+        width: 100%;
         margin-bottom: 35px;
-        .comp-link-button{
-          position: absolute;
-          bottom:0;
-          left:0;
+        .comp-section-title{
+          @include flexSet;
+          justify-content: space-between;
+          align-items: flex-start;
+          .comp-link-button{
+            margin-top: 0;
+          }
         }
       }
     }
   }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 980px){
   .comp-section-news-list{
     padding-bottom: 100px;
     .section_inner{
@@ -26,9 +29,12 @@
         .newslist_ttl{
           width: 30%;
           margin-bottom: 0px;
-          .comp-link-button{
-            position: static;
-            margin-top: 50px;
+          .comp-section-title{
+            display: block;
+            .comp-link-button{
+              max-width: 160px;
+              margin-top: 50px;
+            }
           }
         }
         .newslist_contents{

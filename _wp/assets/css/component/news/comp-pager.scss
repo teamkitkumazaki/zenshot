@@ -1,8 +1,8 @@
 .comp-pager{
   margin: 60px auto 0;
   max-width: 400px;
-  @media screen and (min-width: 720px){
-    margin-top: 80px;
+  @media screen and (min-width: 980px){
+    margin-top: 120px;
   }
   .comp_inner{
     @include flexSet;

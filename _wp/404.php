@@ -20,7 +20,7 @@
 			</div>
 		</div><!-- section_inner -->
 	</section>
-	<?php get_template_part("parts/recruit");?>
+	<?php get_template_part("parts/conversion");?>
 </article>
 <?php get_template_part("parts/hummenu");?>
 <?php get_template_part("parts/footer");?>

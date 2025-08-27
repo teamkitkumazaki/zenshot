@@ -140,6 +140,26 @@ function create_post_type() {
       )
     )
   );
+  //カスタム投稿タイプ１（ここから）
+  register_post_type(
+    'case',  // カスタム投稿名
+    array(
+      'labels' => array(
+        'name' => __( '導入事例' ), // 管理画面の左メニューに表示されるテキスト
+        'singular_name' => __( 'case' ),
+        'rewrite' => array('slug' => 'case-post'),
+        'rewrite' => array( 'with_front' => false ),
+      ),
+      'public' => true,  // 投稿タイプをパブリックにするか否か
+      'menu_position' => 6,  // 管理画面上でどこに配置するか ※「5」で「投稿」の下に配置
+      'has_archive' => true,  // アーカイブを有効にするか否か
+      'show_in_rest' => true,
+      'supports' => array(
+        'title',
+        'thumbnail'
+      )
+    )
+  );
   register_taxonomy(
     'news-category', //タグ名（任意）
     'news', //カスタム投稿名

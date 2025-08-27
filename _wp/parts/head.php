@@ -4,44 +4,44 @@
 	<?php $url = $_SERVER['REQUEST_URI']; ?>
 	<?php
 	if ( is_home() || is_front_page() ) {
-  	$site_title = 'Zen Intelligence株式会社 - Physical AIで、基幹産業を変革する。';
+  	$site_title = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新';
   	$site_permalink = home_url( '/' );
 		$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg';
 		$description = strip_tags(SCF::get('article_description',116));
 	}else if( is_404()){
-		$site_title = 'ページがみつかりません | Zen Intelligence株式会社';
+		$site_title = 'ページがみつかりません | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 		$site_permalink = get_the_permalink();
 		$thumnail = '/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg';
 		$description = strip_tags(SCF::get('article_description',116));
 	}	else if( is_tax()) {
-		$page_title = single_term_title("", false).' | Zen Intelligence株式会社';
-		$site_title = single_term_title("", false).' | Zen Intelligence株式会社';
+		$page_title = single_term_title("", false).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
+		$site_title = single_term_title("", false).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 		$site_permalink = get_the_permalink();
 		$description = strip_tags(term_description());
 	}	else if( is_search()) {
-		$page_title = '「'.get_search_query( $escaped ).'」の検索結果 | Zen Intelligence株式会社';
-		$site_title = '「'.get_search_query( $escaped ).'」の検索結果 | Zen Intelligence株式会社';
+		$page_title = '「'.get_search_query( $escaped ).'」の検索結果 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
+		$site_title = '「'.get_search_query( $escaped ).'」の検索結果 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 		$site_permalink = get_the_permalink();
-		$description = 'Zen Intelligence株式会社のキーワード検索結果ページです。';
+		$description = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新のキーワード検索結果ページです。';
 	} else if( is_category() || is_tag() ){
-		$page_title = '「'.single_cat_title('',false).'」に関する記事一覧 | Zen Intelligence株式会社';
-		$site_title = '「'.single_cat_title('',false).'」に関する記事一覧 | Zen Intelligence株式会社';
+		$page_title = '「'.single_cat_title('',false).'」に関する記事一覧 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
+		$site_title = '「'.single_cat_title('',false).'」に関する記事一覧 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 		$site_permalink = get_the_permalink();
 		$cat_desc = category_description();
 		if($cat_desc){
 			$description = strip_tags($cat_desc);
 		}else{
-			$description = 'Zen Intelligence株式会社の'.single_cat_title('',false).'に関する記事一覧ページです。';
+			$description = 'zenshotの'.single_cat_title('',false).'に関する記事一覧ページです。';
 		}
 	} else if( is_archive() ){
 		if(strstr($url,'/news')){
-			$page_title = 'お知らせ一覧 | Zen Intelligence株式会社';
-			$site_title = 'お知らせ一覧 | Zen Intelligence株式会社';
+			$page_title = 'お知らせ一覧 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
+			$site_title = 'お知らせ一覧 | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 			$site_permalink = get_the_permalink();
-			$description = 'Zen Intelligence株式会社のお知らせ一覧ページです。';
+			$description = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新のお知らせ一覧ページです。';
 		}
 	} else if( is_single()) {
-		$site_title = strip_tags(get_the_title($post->ID)).' | Zen Intelligence株式会社';
+		$site_title = strip_tags(get_the_title($post->ID)).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
   	$site_permalink = get_the_permalink($post->ID);
 		$first_image = catch_that_image();
 		$description = strip_tags(SCF::get('article_description',$post_id));
@@ -54,7 +54,7 @@
 			$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
 		}
 	}else if(is_page()){
-		$site_title = get_the_title($post->ID).' | Zen Intelligence株式会社';
+		$site_title = get_the_title($post->ID).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
   	$site_permalink = get_the_permalink($post->ID);
 		$first_image = catch_that_image();
 		if (!empty(get_the_post_thumbnail_url($post->ID, 'large'))) {
@@ -66,8 +66,8 @@
 			$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
 		}
 	} else{
-		$page_title = 'Zen Intelligence株式会社';
-		$site_title = 'Zen Intelligence株式会社';
+		$page_title = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新';
+		$site_title = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新';
   	$site_permalink = get_the_permalink();
 		$description = strip_tags(SCF::get('article_description',$post_id));
 		$thumbnail_id = get_post_thumbnail_id($post->ID);
@@ -94,7 +94,7 @@
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="<?php echo $site_title; ?>">
 	<meta property="og:description" content="<?php echo $description; ?>">
-	<meta property="og:site_name" content="Zen Intelligence株式会社">
+	<meta property="og:site_name" content="zenshot - 建設現場・施工管理をAI・360度カメラで革新">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:description" content="<?php echo $description; ?>">
 	<meta name="twitter:title" content="<?php echo $site_title; ?>">

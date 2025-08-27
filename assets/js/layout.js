@@ -176,16 +176,63 @@ $(function() {
   }
 
 
+  function articleIndexControll(target){
 
-  function corporateAnimation(){
-    setTimeout(function() {
-      $('#palarax').addClass('palarax');
-    }, 1000);
+    var indexNum = 0;
+    var ankerButton = [];
+    var ankerTitle = [];
+    var caseIndexSp = $('#caseIndexSp');
+    var caseIndexPc = $('#caseIndexPc');
+
+    var buttonAnker = [];
+    var scrollTarget = [];
+
+
+    function windowMove(e) {
+      var headerHeight = $('header').outerHeight();
+      var scrollHeight = $(scrollTarget[e]).offset().top;
+      var adScroll = scrollHeight - headerHeight - 20;
+      $("html, body").animate({
+        scrollTop: adScroll
+      }, 500);
+    }
+
+    function setAnkerButton(wrapper){
+      wrapper.find('button').each(function(index) {
+        console.log('index:' + index);
+        buttonAnker[index] = $(this);
+        scrollTarget[index] = $(this).attr('jump');
+        buttonAnker[index].on({
+          'click': function() {
+            windowMove(index);
+          }
+        });
+      });
+    }
+
+    function init(){
+
+      target.find('.article_ttl').each(function(index) {
+        $(this).attr('id', 'title' + index);
+        ankerTitle[index] = $(this).html();
+        ankerButton[index] = '<div class="index_item"><button jump="#title' + index + '"><span class="txt">'+ ankerTitle[index] +'</span><span class="caret"></span></button></div>';
+        caseIndexPc.append(ankerButton[index]);
+        caseIndexSp.append(ankerButton[index]);
+      });
+
+      setAnkerButton(caseIndexSp);
+      setAnkerButton(caseIndexPc);
+
+    }
+
+    init();
+
   }
 
-  if (document.getElementById('palarax')) {
-    corporateAnimation();
+  if (document.getElementById('caseArticle')) {
+    articleIndexControll($('#caseArticle'));
   }
+
 
 
   // 記事コンテンツのHTML整形

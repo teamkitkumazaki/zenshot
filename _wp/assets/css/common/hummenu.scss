@@ -13,8 +13,12 @@
   line-height: 1;
   will-change: opacity;
   transition: opacity 0.2s;
-  background: $keyColor;
-  @media screen and (min-width: 768px){
+  background-color: $keyColor;
+  background-image: url(http://zen-intelligence.ai/wp-content/uploads/2025/08/hum_bg.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  @media screen and (min-width: 980px){
     display: none;
   }
   &.open{
@@ -37,6 +41,7 @@
       padding: 120px 40px 0;
       .hummenu_navigation{
         ul{
+          margin-bottom: 35px;
           li{
             margin-bottom: 20px;
             a{
@@ -45,14 +50,6 @@
               line-height: 1.6;
               color: inherit;
             }
-          }
-        }
-        .saiyo_link{
-          a{
-            @include flexSet;
-            font-size: 1.6rem;
-            line-height: 1.6;
-            color: inherit;
           }
         }
       }
@@ -66,27 +63,17 @@
         @include flexSet;
         align-items: center;
         justify-content: space-between;
-        .footer_sns{
+        .privacy_link{
           @include flexSet;
-          justify-content: center;
-          align-items: center;
-          .sns_item{
-            margin-right: 15px;
+          .link_item{
+            margin-right: 12px;
             &:nth-last-of-type(1){
               margin-right: 0;
             }
             a{
-              display: block;
-              img{
-                height: 18px;
-              }
+              color: inherit;
+              font-size: 1.2rem;
             }
-          }
-        }
-        .privacy_link{
-          a{
-            color: inherit;
-            font-size: 1.2rem;
           }
         }
       }
