@@ -15,6 +15,7 @@
 /*########## ページ個別レイアウト ##########*/
 @import 'pages/index.scss';
 @import 'pages/about.scss';
+@import 'pages/flow.scss';
 @import 'pages/caseList.scss';
 @import 'pages/caseDetail.scss';
 @import 'pages/newsDetail.scss';
@@ -50,8 +51,13 @@
 
 /* Aboutページ */
 @import 'component/about/comp-about-section.scss'; /**/
-@import 'component/about/comp-about-ttl.scss';
-@import 'component/about/comp-function-list.scss';
+@import 'component/about/comp-about-ttl.scss'; /**/
+@import 'component/about/comp-function-list.scss'; /**/
+
+/* 導入の流れ */
+@import 'component/flow/comp-introduction-flow.scss';
+@import 'component/flow/comp-support-list.scss';
+
 
 
 

@@ -1,0 +1,51 @@
+.comp-introduction-flow{
+  padding-left: 10px;
+  .introduction_item{
+    padding-bottom: 30px;
+    border-left: 1px dotted #666;
+    &:nth-last-of-type(1){
+      padding-bottom: 0px;
+      border-left: 0px dotted #666;
+    }
+    .intro_ttl{
+      position: relative;
+      font-size: 2.0rem;
+      font-weight: 400;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top:0;
+        left:-10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+      }
+    }
+    .intro_desc{
+      padding-left: 25px;
+      @include basicP;
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-introduction-flow{
+    padding-left: 10px;
+    .introduction_item{
+      padding-bottom: 40px;
+      .intro_ttl{
+        position: relative;
+        font-size: 2.4rem;
+        padding-left: 35px;
+        margin-bottom: 15px;
+      }
+      .intro_desc{
+        padding-left: 35px;
+      }
+    }
+  }
+}
