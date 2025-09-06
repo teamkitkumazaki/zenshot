@@ -14,6 +14,7 @@
 
 /*########## ページ個別レイアウト ##########*/
 @import 'pages/index.scss';
+@import 'pages/about.scss';
 @import 'pages/caseList.scss';
 @import 'pages/caseDetail.scss';
 @import 'pages/newsDetail.scss';
@@ -46,6 +47,11 @@
 @import 'component/index/comp-index-section-title.scss'; /**/
 @import 'component/index/comp-topic-list.scss'; /**/
 @import 'component/index/comp-partner-slider.scss'; /**/
+
+/* Aboutページ */
+@import 'component/about/comp-about-section.scss'; /**/
+@import 'component/about/comp-about-ttl.scss';
+@import 'component/about/comp-function-list.scss';
 
 
 

@@ -1148,6 +1148,192 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
     padding-bottom: 160px;
   }
 }
+.page-about {
+  padding-top: 0;
+}
+.page-about .section-introduction {
+  padding-top: 110px;
+  background: #15181B;
+  color: #fff;
+}
+.page-about .section-introduction .intro_flex .intro_ttl {
+  margin-bottom: 35px;
+}
+.page-about .section-introduction .intro_flex .intro_ttl .comp-page-bread {
+  margin-bottom: 15px;
+}
+.page-about .section-introduction .intro_flex .intro_ttl .comp-page-bread .current {
+  color: #fff;
+}
+.page-about .section-introduction .intro_movie {
+  width: 100vw;
+  margin-left: -7vw;
+}
+.page-about .section-kadai {
+  position: relative;
+  padding: 50px 0 15px;
+  background: #fff;
+}
+.page-about .section-kadai .section_inner {
+  position: relative;
+  z-index: 10;
+}
+.page-about .section-kadai::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 13vw;
+  bottom: -13vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../img/about/arrow_lower.svg);
+}
+.page-about .section-solution {
+  padding: calc(30px + 13vw) 0 0;
+  background: #f4f4f4;
+}
+.page-about .section-solution .title_flex {
+  margin-bottom: 35px;
+}
+.page-about .section-solution .kadai_img {
+  width: 100vw;
+  margin-left: -7vw;
+  padding: 30px 7vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+}
+.page-about .section-solution .kadai_img .pc_img {
+  display: none;
+}
+.page-about .section-matrix {
+  padding: 50px 0;
+  background: #f4f4f4;
+}
+.page-about .section-matrix .matrix_ttl {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.page-about .section-matrix .matrix_ttl br {
+  display: none;
+}
+.page-about .section-function {
+  padding: 50px 0;
+  background: #15181B;
+  color: #fff;
+}
+
+@media screen and (min-width: 980px) {
+  .page-about {
+    padding-top: 0;
+  }
+  .page-about .section-introduction {
+    padding-top: 180px;
+    padding-bottom: 120px;
+  }
+  .page-about .section-introduction .intro_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .page-about .section-introduction .intro_flex .intro_ttl {
+    width: 42%;
+    margin-right: 8%;
+    margin-bottom: 35px;
+  }
+  .page-about .section-introduction .intro_flex .intro_ttl .comp-page-bread {
+    margin-bottom: 15px;
+  }
+  .page-about .section-introduction .intro_flex .intro_ttl .comp-page-bread .current {
+    color: #fff;
+  }
+  .page-about .section-introduction .intro_movie {
+    width: 50%;
+    margin-left: 0;
+  }
+  .page-about .section-kadai {
+    padding: 120px 0 50px;
+  }
+  .page-about .section-kadai .section_inner .kadai_img {
+    background: #FAFAFA;
+    padding: 50px 0;
+    text-align: center;
+  }
+  .page-about .section-kadai .section_inner .kadai_img img {
+    max-width: 88%;
+    margin: 0 auto;
+  }
+  .page-about .section-kadai::after {
+    height: 6.9vw;
+    bottom: -6.9vw;
+    background-image: url(../img/about/arrow_lower_pc.svg);
+  }
+  .page-about .section-solution {
+    padding: calc(80px + 7vw) 0 120px;
+  }
+  .page-about .section-solution .title_flex {
+    margin-bottom: 35px;
+  }
+  .page-about .section-solution .kadai_img {
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 0;
+    padding: 50px 0;
+    background: #fff;
+  }
+  .page-about .section-solution .kadai_img .sp_img {
+    display: none;
+  }
+  .page-about .section-solution .kadai_img .pc_img {
+    display: block;
+    max-width: 88%;
+    margin: 0 auto;
+  }
+  .page-about .section-matrix {
+    padding: 120px 0;
+    background: #f7f7f7;
+  }
+  .page-about .section-matrix .comp-about-ttl {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .page-about .section-matrix .matrix_img {
+    padding: 50px 0;
+    text-align: center;
+    background: #fafafa;
+  }
+  .page-about .section-matrix .matrix_img img {
+    max-width: 88%;
+    margin: 0 auto;
+  }
+  .page-about .section-function {
+    padding: 120px 0 60px;
+  }
+  .page-about .section-function .function_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .page-about .section-function .function_flex .function_ttl {
+    width: 33%;
+  }
+  .page-about .section-function .function_flex .function_contents {
+    width: 67%;
+  }
+}
 .page-case-list {
   padding-top: 110px;
 }
@@ -3661,6 +3847,171 @@ footer .footer_inner .footer_content .copyright_wrap .copyright {
 }
 
 /**/
+/* Aboutページ */
+.comp-about-section .title_flex {
+  margin-bottom: 25px;
+}
+.comp-about-section .title_flex hgroup {
+  margin-bottom: 15px;
+}
+.comp-about-section .title_flex hgroup .kadai_ttl {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+.comp-about-section .title_flex hgroup .kadai_subttl {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.comp-about-section .title_flex .kadai_description {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.comp-about-section .title_flex .kadai_description p {
+  margin-bottom: 1em;
+}
+.comp-about-section .title_flex .kadai_description p:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1100px) {
+  .comp-about-section .title_flex .kadai_description {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .comp-about-section .title_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin-bottom: 80px;
+  }
+  .comp-about-section .title_flex hgroup {
+    margin-bottom: 0px;
+  }
+  .comp-about-section .title_flex hgroup .kadai_ttl {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 7px;
+  }
+  .comp-about-section .title_flex hgroup .kadai_subttl {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .comp-about-section .title_flex .kadai_description {
+    width: 50%;
+  }
+}
+/**/
+.comp-about-ttl {
+  margin-bottom: 25px;
+}
+.comp-about-ttl .ttl {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+.comp-about-ttl .subttl {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 980px) {
+  .comp-about-ttl {
+    margin-bottom: 25px;
+  }
+  .comp-about-ttl .ttl {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .comp-about-ttl .subttl {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+.comp-function-list .function_item {
+  margin-bottom: 35px;
+}
+.comp-function-list .function_item:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.comp-function-list .function_item .function_img {
+  margin-bottom: 20px;
+}
+.comp-function-list .function_item .function_txt .function_ttl {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.comp-function-list .function_item .function_txt .function_desc {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.comp-function-list .function_item .function_txt .function_desc p {
+  margin-bottom: 1em;
+}
+.comp-function-list .function_item .function_txt .function_desc p:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1100px) {
+  .comp-function-list .function_item .function_txt .function_desc {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .comp-function-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .comp-function-list .function_item {
+    width: 47%;
+    margin-right: 6%;
+    margin-bottom: 60px;
+  }
+  .comp-function-list .function_item:nth-of-type(2n) {
+    margin-right: 0%;
+  }
+  .comp-function-list .function_item:nth-last-of-type(1) {
+    margin-bottom: 50px;
+  }
+  .comp-function-list .function_item .function_img {
+    margin-bottom: 30px;
+  }
+  .comp-function-list .function_item .function_txt .function_ttl {
+    width: 100%;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+}
 /* 導入事例 */
 .comp-case-list .case_item {
   margin-bottom: 45px;
