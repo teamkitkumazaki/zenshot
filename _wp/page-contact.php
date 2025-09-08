@@ -7,7 +7,7 @@
 	<header class="underpage">
 		<?php get_template_part("parts/header"); ?>
 	</header>
-	<<article id="contact" class="page-contact">
+	<article id="contact" class="page-contact">
 		<section class="section-form">
 			<div class="section_inner">
 				<div class="contact_flex">
