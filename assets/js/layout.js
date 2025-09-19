@@ -693,7 +693,7 @@ $(function() {
     function processOrderContent(){
       $('#submitButton').addClass('disabled');
       $('#ajaxLoader').addClass('loading_state');
-      var useremail = target.find('input[name="useremail"]').val();
+      var usermail = target.find('input[name="useremail"]').val();
       var yourname = target.find('input[name="yourname"]').val();
       var corpname = target.find('input[name="corpname"]').val();
       var categoryProp = [];
@@ -714,20 +714,33 @@ $(function() {
       });
       var route = target.find('input[name="route"]:checked').val();
       var content = target.find('textarea[name="content"]').val();
+      console.log('usermail:' + usermail);
+      console.log('yourname:' + yourname);
+      console.log('corpname:' + corpname);
+      console.log('category:' + categoryProp.join());
+      console.log('corpname2:' + corpname2);
+      console.log('corpname3:' + corpname3);
+      console.log('userphone:' + userphone);
+      console.log('timing:' + timing);
+      console.log('homeNum:' + homeNum);
+      console.log('otherNum:' + otherNum);
+      console.log('bgProp:' + bgProp.join());
+      console.log('route:' + route);
+      console.log('content:' + content);
       $.ajax({
         url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSefhv3koqB5HfLEpeKxY-DHI5AxtMHrnlt8HS2CHONXM2L3PA/formResponse",
         data: {
-          "entry.2091452797": useremail, // メールアドレス
+          "entry.2091452797": usermail, // メールアドレス
           "entry.595095070": yourname, // お名前
           "entry.172362249": corpname, //会社名
-          "entry.1832607930": categoryProp, //業種
+          "entry.1832607930": categoryProp.join(), //業種
           "entry.588712185": corpname2, //部署名
           "entry.1909669773": corpname3, //役職名
           "entry.346629700": userphone, //電話番号
           "entry.480191659": timing, //検討タイミング
           "entry.1932366580": homeNum, //住宅
           "entry.1333973061": otherNum, //非住宅
-          "entry.1928361028": bgProp, //背景
+          "entry.1928361028": bgProp.join(), //背景
           "entry.597337210": route, //知った経緯
           "entry.1122464732": content, //その他ご質問
         },
