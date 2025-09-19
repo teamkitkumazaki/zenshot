@@ -141,7 +141,8 @@
 							'post_type' => 'case',
 							'posts_per_page' => 3,
 							'post_status'  => 'publish',
-							'order' => 'DESC',
+							'orderby' => 'menu_order',
+							'order' => 'ASC',
 							'paged' => $paged,
 						);
 						$the_query = new WP_Query( $param );

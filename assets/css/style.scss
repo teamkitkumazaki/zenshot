@@ -32,8 +32,8 @@
 @import 'component/common/comp-flex-txt-wrap.scss';
 @import 'component/common/comp-terms-content.scss';
 @import 'component/common/comp-underpage-title.scss'; /**/
-@import 'component/common/comp-form-wrap.scss';
-@import 'component/common/comp-link-button.scss';
+@import 'component/common/comp-form-wrap.scss'; /**/
+@import 'component/common/comp-link-button.scss';/**/
 @import 'component/common/comp-page-bread.scss'; /**/
 @import 'component/common/comp-conversion-button.scss';  /**/
 
@@ -53,10 +53,11 @@
 @import 'component/about/comp-about-section.scss'; /**/
 @import 'component/about/comp-about-ttl.scss'; /**/
 @import 'component/about/comp-function-list.scss'; /**/
+@import 'component/about/comp-movie-pop.scss'; /**/
 
 /* 導入の流れ */
-@import 'component/flow/comp-introduction-flow.scss';
-@import 'component/flow/comp-support-list.scss';
+@import 'component/flow/comp-introduction-flow.scss'; /**/
+@import 'component/flow/comp-support-list.scss'; /**/
 
 /* 導入事例 */
 @import 'component/case/comp-case-list.scss'; /**/
@@ -64,8 +65,6 @@
 @import 'component/case/comp-media-voverage.scss'; /**/
 @import 'component/case/comp-case-index.scss'; /**/
 @import 'component/case/comp-case-sumary.scss'; /**/
-
-
 
 
 /* 最新情報 */

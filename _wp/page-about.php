@@ -27,7 +27,9 @@
 					</div>
 					<div class="intro_movie">
 						<div class="movie_wrap">
-							<img src="<?php echo get_template_directory_uri();?>/assets/img/about/movie_mock.jpg">
+							<button id="playButton">
+								<img src="<?php echo get_template_directory_uri();?>/assets/img/about/movie_thumb.png">
+							</button>
 						</div>
 					</div>
 				</div><!-- intro_flex -->
@@ -62,7 +64,7 @@
 				</div>
 				<div class="kadai_img">
 					<img class="sp_img" src="<?php echo get_template_directory_uri();?>/assets/img/about/about_img02.jpg">
-					<img class="pc_img" src="<?php echo get_template_directory_uri();?>/assets/img/about/about_img02_pc.jpg">
+					<img class="pc_img" src="<?php echo get_template_directory_uri();?>/assets/img/about/about_img02_pc.png">
 				</div>
 			</div><!-- section_inner -->
 		</section>
@@ -176,7 +178,8 @@
 							'post_type' => 'case',
 							'posts_per_page' => 3,
 							'post_status'  => 'publish',
-							'order' => 'DESC',
+							'orderby' => 'menu_order',
+							'order' => 'ASC',
 							'paged' => $paged,
 						);
 						$the_query = new WP_Query( $param );
@@ -231,6 +234,15 @@
 		</section>
 		<?php get_template_part("parts/conversion");?>
 	</article>
+	<div id="moviePop" class="comp-movie-pop">
+		<div class="overlay"></div>
+		<button id="closeButton" class="close_button"></button>
+		<div class="pop_inner">
+			<div class="video_wrap">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/VVrm5SDTzHo?si=6czwocXGUeVFh4Uf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
 	<?php get_template_part("parts/hummenu"); ?>
 	<?php get_template_part("parts/footer"); ?>
 </body>

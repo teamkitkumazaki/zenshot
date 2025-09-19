@@ -102,8 +102,11 @@ header{
     }
     .header_inner {
       .header_left{
+        width: calc(100% - 200px);
+        box-sizing: border-box;
         padding-left: 25px;
         @include flexSet;
+        justify-content: space-between;
         align-items: center;
         .header_logo{
           margin-right: 30px;

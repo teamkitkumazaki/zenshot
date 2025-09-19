@@ -6,12 +6,12 @@
 	if ( is_home() || is_front_page() ) {
   	$site_title = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新';
   	$site_permalink = home_url( '/' );
-		$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg';
+		$thumnail = '/wp-content/themes/zenshot/assets/img/ogp/ogp.jpg';
 		$description = strip_tags(SCF::get('article_description',116));
 	}else if( is_404()){
 		$site_title = 'ページがみつかりません | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
 		$site_permalink = get_the_permalink();
-		$thumnail = '/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg';
+		$thumnail = '/wp-content/themes/zenshot/assets/img/ogp/ogp.jpg';
 		$description = strip_tags(SCF::get('article_description',116));
 	}	else if( is_tax()) {
 		$page_title = single_term_title("", false).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
@@ -51,7 +51,7 @@
 		} else if ($first_image != 'no_image') {
 			$thumnail = $first_image; // function.php定義した投稿1枚目の画像を出力
 		} else {
-			$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
+			$thumnail = '/wp-content/themes/zenshot/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
 		}
 	}else if(is_page()){
 		$site_title = get_the_title($post->ID).' | zenshot - 建設現場・施工管理をAI・360度カメラで革新';
@@ -63,7 +63,7 @@
 		} else if ($first_image != 'no_image') {
 			$thumnail = $first_image; // function.php定義した投稿1枚目の画像を出力
 		} else {
-			$thumnail = 'https://zi.noske.design/wp-content/themes/zi-corporate/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
+			$thumnail = '/wp-content/themes/zenshot/assets/img/ogp/ogp.jpg'; // デフォルトのサムネイル画像を出力
 		}
 	} else{
 		$page_title = 'zenshot - 建設現場・施工管理をAI・360度カメラで革新';

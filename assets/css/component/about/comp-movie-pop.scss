@@ -1,0 +1,57 @@
+.comp-movie-pop{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: var(--wHeightPx);
+  z-index: 1000;
+  opacity:0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  &.open{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .close_button{
+    position: absolute;
+    z-index: 20;
+    width: 100px;
+    height: 100px;
+    top:0;
+    right:0;
+    @include bgSet;
+    background-size: 30%;
+    background-image: url(../img/common/close.svg);
+  }
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: var(--wHeightPx);
+    top:0;
+    left:0;
+    background-color: rgba(#231815, 0.9);
+  }
+  .pop_inner{
+    @include flexSet;
+    align-items: center;
+    justify-content: center;
+    height: var(--wHeightPx);
+    .video_wrap{
+      width: 90%;
+      height: 50vw;
+      @media screen and (min-width: 786px){
+        width: 1000px;
+        height: calc(1000px * 0.5625);
+      }
+      margin: 0 auto;
+      position: relative;
+      video, iframe{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

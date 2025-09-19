@@ -10,7 +10,7 @@
 <article id="index" class="page-index">
 	<section class="section-index-main comp-section-index-main">
 		<div class="title_wrap">
-			<h1 class="site_ttl">リアルデータを起点に、<br>Physical AIが現場を変革する</h1>
+			<h1 class="site_ttl">AIと360度カメラで<br>建設現場を変革する</h1>
 			<div class="main_button">
 				<a href="/contact">
 					<span class="txt">お問い合わせ</span>
@@ -279,7 +279,8 @@
 						'post_type' => 'case',
 						'posts_per_page' => 3,
 						'post_status'  => 'publish',
-						'order' => 'DESC',
+						'orderby' => 'menu_order',
+						'order' => 'ASC',
 						'paged' => $paged,
 					);
 					$the_query = new WP_Query( $param );
