@@ -1,0 +1,51 @@
+.comp-about-section{
+  .title_flex{
+    margin-bottom: 25px;
+    hgroup{
+      margin-bottom: 15px;
+      .kadai_ttl{
+        font-size: 1.4rem;
+        line-height: 1.6;
+        font-weight: 400;
+        margin-bottom: 7px;
+      }
+      .kadai_subttl{
+        font-size: 2.0rem;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+    .kadai_description{
+      @include basicP;
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-about-section{
+    .title_flex{
+      @include flexSet;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 80px;
+      hgroup{
+        margin-bottom: 0px;
+        .kadai_ttl{
+          font-size: 1.6rem;
+          line-height: 1.6;
+          font-weight: 400;
+          margin-bottom: 7px;
+        }
+        .kadai_subttl{
+          font-size: 2.8rem;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+      }
+      .kadai_description{
+        width: 50%;
+      }
+    }
+  }
+
+}

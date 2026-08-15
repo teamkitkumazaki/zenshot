@@ -8,7 +8,7 @@
     padding-bottom: 50px;
     .case_detail_flex{
       .detail_header{
-        margin-bottom: 25px;
+        margin-bottom: 30px;
         .comp-page-bread{
           margin-bottom: 25px;
         }
@@ -18,7 +18,8 @@
           margin-bottom: 15px;
           .category{
             padding: 7px 10px;
-            border: 1px solid $keyColor;
+            background: $keyColor;
+            color: #fff;
             border-radius: 200px;
             font-size: 1.2rem;
             margin-right: 10px;
@@ -33,11 +34,36 @@
           line-height: 1.5;
           word-break: break-all;
         }
+        .client_wrap{
+          border-top: 1px solid $keyColor;
+          padding-top: 20px;
+          margin-top: 15px;
+          .client_name{
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+          }
+          .client_scale{
+            font-size: 1.3rem;
+          }
+        }
         .comp-case-index{
           display: none;
         }
       }
       .case_article{
+        .case_thumb_img{
+          width: 100vw;
+          margin-left: -7vw;
+          margin-bottom: 30px;
+          img{
+            width: 100%;
+          }
+          @media screen and (min-width: 780px){
+            width: 100%;
+            margin-left: 0;
+          }
+        }
         .case_movie_wrap{
           position: relative;
           height: 49vw;
@@ -98,12 +124,29 @@
             font-size: 1.8rem;
             line-height: 1.8;
           }
+          .client_wrap{
+            border-top: 1px solid $keyColor;
+            padding-top: 25px;
+            margin-top: 20px;
+            .client_name{
+              font-size: 1.8rem;
+              margin-bottom: 15px;
+            }
+            .client_scale{
+              font-size: 1.5rem;
+            }
+          }
           .comp-case-index{
             display: block;
           }
         }
         .case_article{
           width: 60%;
+          .case_thumb_img{
+            width: 100%;
+            margin-left: 0;
+            margin-bottom: 40px;
+          }
           .case_movie_wrap{
             position: relative;
             height: 29vw;

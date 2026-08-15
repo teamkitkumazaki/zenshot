@@ -1,0 +1,48 @@
+.comp-function-list{
+  .function_item{
+    margin-bottom: 35px;
+    &:nth-last-of-type(1){
+      margin-bottom: 0;
+    }
+    .function_img{
+      margin-bottom: 20px;
+    }
+    .function_txt{
+      .function_ttl{
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+      .function_desc{
+        @include basicP;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .comp-function-list{
+    @include flexSet;
+    .function_item{
+      width: 47%;
+      margin-right: 6%;
+      margin-bottom: 60px;
+      &:nth-of-type(2n){
+        margin-right: 0%;
+      }
+      &:nth-last-of-type(1){
+        margin-bottom: 50px;
+      }
+      .function_img{
+        margin-bottom: 30px;
+      }
+      .function_txt{
+        .function_ttl{
+          width: 100%;
+          font-size: 2.2rem;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

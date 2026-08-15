@@ -233,8 +233,6 @@ $(function() {
     articleIndexControll($('#caseArticle'));
   }
 
-
-
   // 記事コンテンツのHTML整形
   function arrangeArticleHTML(target){
 
@@ -270,6 +268,49 @@ $(function() {
     arrangeArticleHTML($('#articleContent'));
   }
 
+  // 動画再生処理
+  function playMovieButton(target) {
+    var playButton = $('#playButton');
+    var moviePop = $('#moviePop');
+    var closeButton = $('#closeButton');
+    var movieButton = [];
+    var movieThumb = [];
+    var movieLength = [];
+    var movieContent = [];
+    var targetMovie = [];
+
+    function moviePlay() {
+      moviePop.addClass('open');
+      document.getElementById('conceptMovie').play();
+    };
+
+    function movieStop() {
+      moviePop.removeClass('open');
+      document.getElementById('conceptMovie').pause();
+    };
+
+    function init() {
+
+      console.log('playMovieButton');
+
+      playButton.on({
+        'click': function() {
+          moviePlay();
+        }
+      });
+      closeButton.on({
+        'click': function() {
+          movieStop();
+        }
+      });
+    }
+
+    init();
+  }
+
+  if (document.getElementById('about')) {
+    playMovieButton($('article'));
+  }
 
   /* お問い合わせフォームのGAS連動とバリデーション */
   function setMyForm(target){
@@ -312,13 +353,20 @@ $(function() {
       removeErrorMessage(selector);
       selector.parent('div').append('<span class="attention '+ERROR_MESSAGE_CLASSNAME+'">'+msg+'</span>');
       selector.addClass(ERROR_INPUT_CLASSNAME);
+      selector.parent('label').parent('div').parent('div').append('<span class="attention '+ERROR_MESSAGE_CLASSNAME+'">'+msg+'</span>');
+      selector.addClass(ERROR_INPUT_CLASSNAME);
     };
 
     //エラーメッセージの削除
     var removeErrorMessage = function(selector){
       var msgSelector = selector.parent().parent('div').find('.'+ERROR_MESSAGE_CLASSNAME);
+      var msgSelector2 = selector.parent().parent('.radio_box').parent('div').find('.'+ERROR_MESSAGE_CLASSNAME);
       if( msgSelector.length != 0 ){
         msgSelector.remove();
+        selector.removeClass(ERROR_INPUT_CLASSNAME);
+      };
+      if( msgSelector2.length != 0 ){
+        msgSelector2.remove();
         selector.removeClass(ERROR_INPUT_CLASSNAME);
       };
     };
@@ -422,12 +470,18 @@ $(function() {
         target.find('input[name="yourname"]'), //0 お名前
         target.find('input[name="useremail"]'), //1 メールアドレス
         target.find('input[name="useremail2"]'), //2 メールアドレス確認用
-        target.find('input[name="userphone"]'), //3 電話番号
-        target.find('input[name="corpname"]'), //4 会社名
+        target.find('input[name="corpname"]'), //3 会社名
+        target.find('input[name="category"]'), //4 業種
         target.find('input[name="corpname2"]'), //5 部署名
         target.find('input[name="corpname3"]'), //6 役職
-        target.find('textarea[name="content"]'), //5 ご相談内容
-        target.find('input[name=agreement]'), //6 プラポリへの合意
+        target.find('input[name="userphone"]'), //7 電話番号
+        target.find('input[name="timing"]'), //8 検討タイミング
+        target.find('input[name="homeNum"]'), //9 住宅
+        target.find('input[name="otherNum"]'), //10 非住宅
+        target.find('input[name="background"]'), //11 お問い合わせの背景
+        target.find('input[name="route"]'), //12 zenshotのことをどこで知りましたか？
+        target.find('textarea[name="content"]'), //13 ご相談内容
+        target.find('input[name=agreement]'), //14 プラポリへの合意
       ];
       //input要素のプロパティを設定
       $.each(items, function(index){
@@ -440,24 +494,23 @@ $(function() {
           if( (e.keyCode == 13) ) return false;
         }
       });
+
       //0 お名前
       items[0].on({
         'blur': function(){
           checkEmptyText( items[0], '※お名前を入力してください。' );
-          checkAll();
         }
       });
 
-      //2 メールアドレス
+      //1 メールアドレス
       items[1].on({
         'blur': function(){
           checkEmptyText( items[1], '※メールアドレスをご入力ください。' );
           if( items[1].prop('isSuccess') ) checkFormatText( items[1], 3, 'アドレスの形式をご確認ください' );
-          checkAll();
         }
       });
 
-      //3 メールアドレス(確認用)
+      //2 メールアドレス(確認用)
       items[2].on({
         'blur': function(){
           checkEmptyText( items[2], '※確認用メールアドレスは必須です。');
@@ -467,27 +520,22 @@ $(function() {
               checkFormatText( items[2], 5, '※メールアドレスが一致しません。' );
             }
           }
-
-          checkAll();
-
         }
       });
 
-      //3 電話番号
+      //3 会社名
       items[3].on({
         'blur': function(){
-          hankaku2Zenkaku($(this));
-          checkEmptyText( items[3], '※電話番号を入力してください。' );
-          if( items[3].prop('isSuccess') ) checkFormatText( items[3], 2, '※電話番号は数字で入力してください。');
-          checkAll();
+          checkEmptyText( items[3], '※会社名を入力してください。' );
         }
       });
 
-      //4 会社名
+      //4 業種
+      items[4].prop('isSuccess', true);
       items[4].on({
-        'blur': function(){
-          checkEmptyText( items[4], '※会社名を入力してください。' );
-          checkAll();
+        'click': function(){
+          items[4].prop('isSuccess', true);
+          removeErrorMessage(items[4]);
         }
       });
 
@@ -495,7 +543,6 @@ $(function() {
       items[5].on({
         'blur': function(){
           checkEmptyText( items[5], '※部署名を入力してください。' );
-          checkAll();
         }
       });
 
@@ -503,30 +550,73 @@ $(function() {
       items[6].on({
         'blur': function(){
           checkEmptyText( items[6], '※役職を入力してください。' );
-          checkAll();
         }
       });
 
-
-      //7 ご相談内容
+      //7 電話番号
       items[7].on({
         'blur': function(){
-          checkEmptyText( items[7], '※ご相談内容を入力してください。' );
-          checkAll();
+          hankaku2Zenkaku($(this));
+          checkEmptyText( items[7], '※電話番号を入力してください。' );
+          if( items[7].prop('isSuccess') ) checkFormatText( items[7], 2, '※電話番号は数字で入力してください。');
         }
       });
 
-
-      //6 プラポリへの合意
+      //8 検討タイミング
+      items[8].prop('isSuccess', true);
       items[8].on({
+        'click': function(){
+          items[8].prop('isSuccess', true);
+          removeErrorMessage(items[8]);
+        }
+      });
+
+      //9 住宅の棟数
+      items[9].on({
+        'blur': function(){
+          checkEmptyText( items[9], '※住宅の棟数を入力してください。' );
+        }
+      });
+
+      //10 非住宅の棟数
+      items[10].on({
+        'blur': function(){
+          checkEmptyText( items[10], '※非住宅の棟数を入力してください。' );
+        }
+      });
+
+      //11 お問い合わせの背景
+      items[11].prop('isSuccess', true);
+      items[11].on({
+        'click': function(){
+          items[11].prop('isSuccess', true);
+          removeErrorMessage(items[11]);
+        }
+      });
+
+      //12 zenshotのことをどこで知りましたか？
+      items[12].prop('isSuccess', true);
+      items[12].on({
+        'click': function(){
+          items[12].prop('isSuccess', true);
+          removeErrorMessage(items[12]);
+        }
+      });
+
+      //13 ご相談内容
+      items[13].prop('isSuccess', true);
+
+
+      //14 プラポリへの合意
+      items[14].on({
         'change': function(){
           console.log('check!');
           var agreeState = $('input[name=agreement]:checked').val();
           if(agreeState == 1){
-            items[8].prop('isSuccess', true);
+            items[14].prop('isSuccess', true);
             $('#submitButton').removeClass('disabled');
           }else{
-            items[8].prop('isSuccess', false);
+            items[14].prop('isSuccess', false);
             $('#submitButton').addClass('disabled');
           }
         }
@@ -544,12 +634,48 @@ $(function() {
               checkFormatText( items[2], 5, '※メールアドレスが一致しません。' );
             }
           }
-          checkEmptyText( items[3], '※電話番号を入力してください。' );
-          if( items[3].prop('isSuccess') ) checkFormatText( items[3], 2, '※電話番号は数字で入力してください。');
-          checkEmptyText( items[4], '※会社名を入力してください。' );
+          checkEmptyText( items[3], '※会社名を入力してください。' );
+          if($('input[name="timing"]:checked').val()){
+            console.log('true:4');
+            items[4].prop('isSuccess', true);
+            removeErrorMessage(items[4]);
+          }else{
+            console.log('false:4');
+            items[4].prop('isSuccess', false);
+            addErrorMessage(items[4], '※業種を選択してください。');
+          }
           checkEmptyText( items[5], '※部署名を入力してください。' );
           checkEmptyText( items[6], '※役職を入力してください。' );
-          checkEmptyText( items[7], '※ご相談内容を入力してください。' );
+          checkEmptyText( items[7], '※電話番号を入力してください。' );
+          if( items[7].prop('isSuccess') ) checkFormatText( items[7], 2, '※電話番号は数字で入力してください。');
+          if($('input[name="timing"]:checked').val()){
+            console.log('true!');
+            items[8].prop('isSuccess', true);
+            removeErrorMessage(items[8]);
+          }else{
+            console.log('false');
+            items[8].prop('isSuccess', false);
+            addErrorMessage(items[8], '※検討タイミングを選択してください。');
+          }
+          checkEmptyText( items[9], '※住宅の棟数を入力してください。' );
+          checkEmptyText( items[10], '※非住宅の棟数を入力してください。' );
+          if($('input[name="background"]:checked').val()){
+            console.log('true:11');
+            items[11].prop('isSuccess', true);
+            removeErrorMessage(items[11]);
+          }else{
+            console.log('false:11');
+            items[11].prop('isSuccess', false);
+            addErrorMessage(items[11], '※お問い合わせの背景を選択してください。');
+          }
+          if($('input[name="route"]:checked').val()){
+            items[12].prop('isSuccess', true);
+            removeErrorMessage(items[12]);
+          }else{
+            console.log('false:12');
+            items[12].prop('isSuccess', false);
+            addErrorMessage(items[12], '※知った経緯を選択してください。');
+          }
           checkAll();
           if( errorCount == 0 ){
             processOrderContent();
@@ -567,23 +693,56 @@ $(function() {
     function processOrderContent(){
       $('#submitButton').addClass('disabled');
       $('#ajaxLoader').addClass('loading_state');
+      var usermail = target.find('input[name="useremail"]').val();
       var yourname = target.find('input[name="yourname"]').val();
       var corpname = target.find('input[name="corpname"]').val();
+      var categoryProp = [];
+      $('input:checkbox[name=category]:checked').each(function() {
+        categoryProp.push($(this).val());
+        console.log(categoryProp.join());
+      });
       var corpname2 = target.find('input[name="corpname2"]').val();
       var corpname3 = target.find('input[name="corpname3"]').val();
-      var useremail = target.find('input[name="useremail"]').val();
       var userphone = target.find('input[name="userphone"]').val();
+      var timing = target.find('input[name="timing"]:checked').val();
+      var homeNum = target.find('input[name="homeNum"]').val();
+      var otherNum = target.find('input[name="otherNum"]').val();
+      var bgProp = [];
+      $('input:checkbox[name=background]:checked').each(function() {
+        bgProp.push($(this).val());
+        console.log(bgProp.join());
+      });
+      var route = target.find('input[name="route"]:checked').val();
       var content = target.find('textarea[name="content"]').val();
+      console.log('usermail:' + usermail);
+      console.log('yourname:' + yourname);
+      console.log('corpname:' + corpname);
+      console.log('category:' + categoryProp.join());
+      console.log('corpname2:' + corpname2);
+      console.log('corpname3:' + corpname3);
+      console.log('userphone:' + userphone);
+      console.log('timing:' + timing);
+      console.log('homeNum:' + homeNum);
+      console.log('otherNum:' + otherNum);
+      console.log('bgProp:' + bgProp.join());
+      console.log('route:' + route);
+      console.log('content:' + content);
       $.ajax({
-        url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdESxKC0wYDXyckQhZC3K61yaRUzp0h0EenJj6sulhyaWHJXQ/formResponse",
+        url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSefhv3koqB5HfLEpeKxY-DHI5AxtMHrnlt8HS2CHONXM2L3PA/formResponse",
         data: {
-          "entry.1282559236": useremail,
-          "entry.527306641": corpname,
-          "entry.1056186970": corpname2,
-          "entry.1481268843": corpname3,
-          "entry.309329179": userphone,
-          "entry.2146791683": yourname,
-          "entry.1646094556": content,
+          "entry.2091452797": usermail, // メールアドレス
+          "entry.595095070": yourname, // お名前
+          "entry.172362249": corpname, //会社名
+          "entry.1832607930": categoryProp.join(), //業種
+          "entry.588712185": corpname2, //部署名
+          "entry.1909669773": corpname3, //役職名
+          "entry.346629700": userphone, //電話番号
+          "entry.480191659": timing, //検討タイミング
+          "entry.1932366580": homeNum, //住宅
+          "entry.1333973061": otherNum, //非住宅
+          "entry.1928361028": bgProp.join(), //背景
+          "entry.597337210": route, //知った経緯
+          "entry.1122464732": content, //その他ご質問
         },
         type: "POST",
         dataType: "xml",

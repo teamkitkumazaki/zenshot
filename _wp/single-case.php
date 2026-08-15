@@ -16,9 +16,12 @@
 		$date = get_the_date('Y.m.d');
 		$page_ttl = get_the_title($post_id);
 		$client_name = SCF::get('client_name',$post_id);
+		$client_scale = SCF::get('client_scale',$post_id);
 		$case_movie = SCF::get('case_movie',$post_id);
 		$article_description = SCF::get('article_description',$post_id);
 		$client_logo = wp_get_attachment_image_src($client_logo, 'medium_large');
+		$kadai_list = SCF::get('kadai_list',$post_id);
+		$solution_list = SCF::get('solution_list',$post_id);
 		$article_content = SCF::get('article_contents',$post_id);
 		$article_voice = SCF::get('article_voice',$post_id);
 		$article_usescene = SCF::get('article_usescene',$post_id);
@@ -44,9 +47,12 @@
 					<div class="detail_header">
 						<div class="case_wrapper">
 							<div class="category">導入企業の声</div>
-							<div class="client_name"><?= $client_name; ?></div>
 						</div>
 						<h1 class="case_title"><?= $page_ttl; ?></h1>
+						<div class="client_wrap">
+							<h2 class="client_name"><?= $client_name ;?></h2>
+							<div class="client_scale">(<?= $client_scale ;?>)</div>
+						</div>
 						<div class="comp-case-index">
 							<h2 class="index_ttl">目次</h2>
 							<div id="caseIndexPc"  class="index_wrapper">
@@ -54,20 +60,31 @@
 						</div><!-- comp-case-index -->
 					</div><!-- detail_header -->
 					<div class="case_article">
-						<div class="case_movie_wrap">
+						<div class="case_movie_wrap" style="display: none;">
 							<?= $case_movie;?>
 						</div>
-						<div id="caseArticle" class="comp-case-article">
-							<div class="article_item">
-								<div class="article_desc">
-									<p class="white-space: pre-line;"><?= $article_description;?></p>
-								</div>
+						<div class="case_thumb_img">
+							<img loading="lazy" class="portrait" src="<?= $image ?>" srcset="<?= $image ?> 1440w, <?= $image_sp ?> 768w, <?= $image ?> 2048w">
+						</div>
+						<div class="comp-case-sumary">
+							<div class="summary_items">
+								<h2 class="summary_ttl">課題</h2>
+								<ul class="summary_list">
+									<?php foreach ($kadai_list as $d):?>
+									<li><?= $d['kadai_item'];?></li>
+									<?php endforeach; ?>
+								</ul>
 							</div>
-							<div class="comp-case-index">
-								<h2 class="index_ttl">目次</h2>
-								<div id="caseIndexSp" class="index_wrapper">
-								</div><!-- index_wrapper -->
-							</div><!-- comp-case-index -->
+							<div class="summary_items">
+								<h2 class="summary_ttl">効果</h2>
+								<ul class="summary_list">
+									<?php foreach ($solution_list as $d):?>
+									<li><?= $d['solution_item'];?></li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						</div><!-- comp-case-sumary -->
+						<div id="caseArticle" class="comp-case-article">
 							<?php foreach ($article_content as $d):?>
 							<div class="article_item">
 								<div class="article_img">
@@ -78,22 +95,27 @@
 												src="<?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?>"
 												srcset="<?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?> 1440w, <?= wp_get_attachment_image_src($d['article_img'], 'medium_large')[0] ?> 768w, <?= wp_get_attachment_image_src($d['article_img'], 'full')[0] ?> 2048w"
 											>
+											<?php if ($d['article_img_caption']):?>
+											<span class="caption">
+												<?= $d['article_img_caption'];?>
+											</span>
+											<?php endif; ?>
 										</div>
 										<?php endif; ?>
 								</div>
 								<?php if ($d['title_h2']):?>
 									<h2 class="article_ttl"><?= $d['title_h2'];?></h2>
 								<?php endif; ?>
+								<?php if ($d['title_h3']):?>
+									<h3 class="article_subttl"><?= $d['title_h3'];?></h3>
+								<?php endif; ?>
+								<?php if ($d['article_desc']):?>
 								<div class="article_desc">
 									<p style="white-space:pre-line;"><?= $d['article_desc'];?></p>
 								</div>
-							</div>
-							<?php endforeach; ?>
-							<hr>
-							<div class="article_item">
-								<h2 class="article_ttl">現場の声</h2>
+								<?php endif; ?>
+								<?php if ($d['voice_desc']):?>
 								<div class="article_voice">
-									<?php foreach ($article_voice as $d):?>
 									<div class="voice_item">
 										<?php if ($d['voice_img']):?>
 										<div class="voice_img">
@@ -105,65 +127,19 @@
 										<?php endif; ?>
 										<div class="voice_contents">
 											<?php if ($d['voice_ttl']):?>
-											<h3 class="voice_name" style="white-space:pre-line;"><?= $d['voice_ttl'];?></h3>
+											<h3 class="voice_name"><?= $d['voice_ttl'];?></h3>
 											<?php endif; ?>
 											<?php if ($d['voice_desc']):?>
 											<div class="voice_description">
-												<p style="white-space:pre-line;"><?= $d['voice_desc'];?></p>
+												<p><?= $d['voice_desc'];?></p>
 											</div>
-											<?php endif; ?>
+												<?php endif; ?>
 										</div>
 									</div>
-									<?php endforeach; ?>
 								</div><!-- article_voice -->
-							</div><!-- article_item -->
-							<hr>
-							<div class="article_item">
-								<h2 class="article_ttl">ご利用の様子</h2>
-								<div class="usescene_wrap">
-									<?php foreach ($article_usescene as $d):?>
-									<div class="usescene_item <?php if ($d['usescene02']):?>image2<?php endif; ?>">
-										<?php if ($d['usescene01']):?>
-										<div class="img_item">
-											<img
-												src="<?= wp_get_attachment_image_src($d['usescene01'], 'full')[0] ?>"
-												srcset="<?= wp_get_attachment_image_src($d['usescene01'], 'full')[0] ?> 1440w, <?= wp_get_attachment_image_src($d['usescene01'], 'medium_large')[0] ?> 768w, <?= wp_get_attachment_image_src($d['usescene01'], 'full')[0] ?> 2048w"
-											>
-										</div>
-										<?php endif; ?>
-										<?php if ($d['usescene02']):?>
-										<div class="img_item">
-											<img
-												src="<?= wp_get_attachment_image_src($d['usescene02'], 'full')[0] ?>"
-												srcset="<?= wp_get_attachment_image_src($d['usescene02'], 'full')[0] ?> 1440w, <?= wp_get_attachment_image_src($d['usescene02'], 'medium_large')[0] ?> 768w, <?= wp_get_attachment_image_src($d['usescene02'], 'full')[0] ?> 2048w"
-											>
-										</div>
-										<?php endif; ?>
-										<?php if ($d['usescene_caption']):?>
-											<p class="caption"><?= $d['usescene_caption'];?></p>
-										<?php endif; ?>
-									</div>
-									<?php endforeach; ?>
-								</div><!-- usescene_wrap -->
+								<?php endif; ?>
 							</div>
-							<hr>
-							<div class="article_item">
-								<h2 class="article_ttl">メディア掲載</h2>
-									<div class="comp-media-voverage">
-										<?php foreach ($article_media as $d):?>
-										<div class="media_item">
-											<?php if ($d['media_name']):?>
-											<div class="media_name"><?= $d['media_name'];?></div>
-											<?php endif; ?>
-												<div class="contents_ttl">
-													<p>
-														<?php if ($d['media_ttl']):?><?= $d['media_ttl'];?><?php endif; ?><?php if ($d['media_url']):?><br><a target="_blank" href="<?= $d['media_url'];?>"><?= $d['media_url'];?></a><?php endif; ?>
-													</p>
-												</div>
-										</div>
-									<?php endforeach; ?>
-								</div><!-- comp-media-voverage -->
-							</div>
+							<?php endforeach; ?>
 						</div><!-- comp-case-article -->
 					</div><!-- case_article -->
 				</div><!-- case_detail_flex -->
@@ -193,7 +169,8 @@
 							'post_type' => 'case',
 							'posts_per_page' => 3,
 							'post_status'  => 'publish',
-							'order' => 'DESC',
+							'orderby' => 'menu_order',
+							'order' => 'ASC',
 							'paged' => $paged,
 						);
 						$the_query = new WP_Query( $param );

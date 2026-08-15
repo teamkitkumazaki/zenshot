@@ -13,12 +13,37 @@
       img{
         width: 100%;
       }
+      .caption{
+        display: block;
+        padding: 10px;
+        font-size: 1.0rem;
+        line-height: 1.6;
+        background: #fff;
+      }
     }
     .article_ttl{
-      margin: 20px auto;
+      position: relative;
+      margin: 40px auto 15px;
       font-size: 2.0rem;
       font-weight: 400;
       line-height: 1.5;
+      padding-top: 20px;
+      &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, #27E2CC, #0EC0EC 50%,  #0077FF 100%);
+      }
+    }
+    .article_subttl{
+      font-size: 1.6rem;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 15px;
     }
     .article_desc{
       margin: 0 auto 20px;
@@ -81,10 +106,19 @@
         img{
           width: 100%;
         }
+        .caption{
+          padding: 15px;
+          font-size: 1.4rem;
+        }
       }
       .article_ttl{
-        margin: 40px auto 25px;
+        margin: 80px auto 25px;
+        padding-top: 30px;
         font-size: 2.6rem;
+      }
+      .article_subttl{
+        font-size: 2.0rem;
+        margin-bottom: 20px;
       }
       .article_desc{
         margin: 0 auto 40px;

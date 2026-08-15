@@ -1,0 +1,105 @@
+.page-flow{
+  .section-flow{
+    padding-bottom: 50px;
+    .flow_flex{
+      .flow_ttl{
+        margin-bottom: 30px;
+        .comp-page-bread{
+          margin-bottom: 12px;
+        }
+      }
+      .flow_contents{
+
+      }
+    }
+  }
+  .section-support{
+    padding: 50px 0;
+    background: $keyColor;
+    color: #fff;
+  }
+  .section-contact{
+    padding: 30px 0;
+    .section_inner{
+      background: #fff;
+      padding: 40px 30px;
+      box-sizing: border-box;
+      .contact_ttl{
+        font-size: 2.0rem;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .contact_desc{
+        @include basicP;
+        margin-bottom: 25px;
+        br{
+          display: none;
+        }
+      }
+      .comp-conversion-button{
+        .button_item{
+          a{
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 980px){
+  .page-flow{
+    padding-top: 180px;
+    .section-flow{
+      padding-bottom: 120px;
+      .flow_flex{
+        @include flexSet;
+        justify-content: space-between;
+        .flow_ttl{
+          margin-bottom: 0px;
+          .comp-page-bread{
+            margin-bottom: 15px;
+          }
+        }
+        .flow_contents{
+          width: 60%;
+        }
+      }
+    }
+    .section-support{
+      padding: 120px 0;
+      .support_flex{
+        @include flexSet;
+        justify-content: space-between;
+        .support_ttl{
+          width: 40%;
+          padding-right: 10%;
+          box-sizing: border-box;
+        }
+        .support_content{
+          width: 60%;
+        }
+      }
+    }
+    .section-contact{
+      padding: 100px 0;
+      .section_inner{
+        background: #fff;
+        padding: 80px 0px;
+        box-sizing: border-box;
+        .contact_ttl{
+          font-size: 2.8rem;
+          margin-bottom: 25px;
+        }
+        .contact_desc{
+          text-align: center;
+          margin-bottom: 30px;
+          br{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
