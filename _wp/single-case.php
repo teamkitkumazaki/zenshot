@@ -20,6 +20,8 @@
 		$case_movie = SCF::get('case_movie',$post_id);
 		$article_description = SCF::get('article_description',$post_id);
 		$client_logo = wp_get_attachment_image_src($client_logo, 'medium_large');
+		$kadai_list = SCF::get('kadai_list',$post_id);
+		$solution_list = SCF::get('solution_list',$post_id);
 		$article_content = SCF::get('article_contents',$post_id);
 		$article_voice = SCF::get('article_voice',$post_id);
 		$article_usescene = SCF::get('article_usescene',$post_id);
@@ -68,17 +70,17 @@
 							<div class="summary_items">
 								<h2 class="summary_ttl">課題</h2>
 								<ul class="summary_list">
-									<li>複数現場を担当する監督の移動時間が他業務を圧迫</li>
-									<li>既存の撮影ツールは操作が煩雑で、現場での統一活用が難航</li>
-									<li>高度化する施主要望が若手監督の心理的負担となり、定着や採用の障壁に</li>
+									<?php foreach ($kadai_list as $d):?>
+									<li><?= $d['kadai_item'];?></li>
+									<?php endforeach; ?>
 								</ul>
 							</div>
 							<div class="summary_items">
 								<h2 class="summary_ttl">効果</h2>
 								<ul class="summary_list">
-									<li>現場巡回の頻度が減り、交通状況の読みづらい首都圏を中心に移動時間を削減</li>
-									<li>シンプルな操作性で、撮影者を選ばず現場の記録を確実に残せるように</li>
-									<li>関係部門で現場状況を共有し、品質向上と心理的プレッシャー軽減を両立</li>
+									<?php foreach ($solution_list as $d):?>
+									<li><?= $d['solution_item'];?></li>
+									<?php endforeach; ?>
 								</ul>
 							</div>
 						</div><!-- comp-case-sumary -->
@@ -107,9 +109,35 @@
 								<?php if ($d['title_h3']):?>
 									<h3 class="article_subttl"><?= $d['title_h3'];?></h3>
 								<?php endif; ?>
+								<?php if ($d['article_desc']):?>
 								<div class="article_desc">
 									<p style="white-space:pre-line;"><?= $d['article_desc'];?></p>
 								</div>
+								<?php endif; ?>
+								<?php if ($d['voice_desc']):?>
+								<div class="article_voice">
+									<div class="voice_item">
+										<?php if ($d['voice_img']):?>
+										<div class="voice_img">
+											<img
+												src="<?= wp_get_attachment_image_src($d['voice_img'], 'medium_large')[0] ?>"
+												srcset="<?= wp_get_attachment_image_src($d['voice_img'], 'medium_large')[0] ?> 1440w, <?= wp_get_attachment_image_src($d['voice_img'], 'medium_large')[0] ?> 768w, <?= wp_get_attachment_image_src($d['voice_img'], 'medium_large')[0] ?> 2048w"
+											>
+										</div>
+										<?php endif; ?>
+										<div class="voice_contents">
+											<?php if ($d['voice_ttl']):?>
+											<h3 class="voice_name"><?= $d['voice_ttl'];?></h3>
+											<?php endif; ?>
+											<?php if ($d['voice_desc']):?>
+											<div class="voice_description">
+												<p><?= $d['voice_desc'];?></p>
+											</div>
+												<?php endif; ?>
+										</div>
+									</div>
+								</div><!-- article_voice -->
+								<?php endif; ?>
 							</div>
 							<?php endforeach; ?>
 						</div><!-- comp-case-article -->
